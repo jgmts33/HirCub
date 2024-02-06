@@ -1,0 +1,239 @@
+.intake-form {
+  background-color: #aadfe5;
+  border-radius: 10px;
+  margin-top: 28px;
+
+  .form-title {
+    font-size: xx-large;
+    color: #333;
+    margin-left: 40px;
+    padding-top: 40px;
+  }
+
+  .form-description {
+    font-size: medium;
+    color: #333;
+    margin-left: 40px;
+    margin-right: 40px;
+    padding-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  .submit-button {
+    text-align: right;
+    margin-right: 40px;
+    padding-bottom: 20px;
+
+    > button {
+      border-width: 0;
+      height: 32px;
+    }
+    i {
+      margin-right: 10px;
+    }
+  }
+
+  .intake-caretaker-form {
+    margin-left: 12px;
+    margin-right: 12px;
+  }
+}
+
+.intake-caretaker-form {
+  .page-panel-group-container {
+    background-color: white;
+    border-radius: 0.4rem;
+
+    .page-panel-group {
+      background: #fff;
+      padding-top: 0.5rem;
+      margin-bottom: 0.25rem;
+      border-radius: 0px;
+      margin: 0.5rem 1.5rem;
+    }
+    .page-panel-group-title {
+      background: #fff;
+      color: #333;
+      font-size: 1rem;
+      padding-left: 0;
+    }
+    .page-panel-group-body {
+      padding: 0.5rem 0.1rem;
+
+      .input-filed > input {
+        background-color: #eef0ef;
+
+        &:disabled {
+          background-color: rgba(59, 59, 59, 0.2);
+        }
+      }
+
+      .radio input[type='radio'] + span {
+        color: #333;
+
+        &:after {
+          width: 20px;
+          height: 20px;
+          margin-top: 0px;
+          margin-left: 2px;
+          margin-right: 0px;
+          border: 2px solid #51bccb;
+        }
+
+        &:before {
+          margin-left: 6px;
+          width: 12px;
+          height: 12px;
+          margin-top: 4px;
+        }
+      }
+
+      .form-group {
+        margin-bottom: 0.5rem;
+      }
+
+      .checkbox input[type='checkbox'] + span {
+        color: #333;
+
+        &:after {
+          width: 20px;
+          height: 20px;
+          margin-top: 0px;
+          margin-left: 2px;
+          margin-right: 0px;
+          border: 2px solid #51bccb;
+        }
+
+        &:before {
+          margin-left: 6px;
+          width: 12px;
+          height: 12px;
+          margin-top: 4px;
+        }
+      }
+
+      .btn-add-item {
+        color: #4291ac;
+        font-weight: 600;
+        font-size: 13px;
+        line-height: 12.5px;
+        border-width: 0px;
+        transition: 0.5s;
+        cursor: pointer;
+        outline: none;
+        background-color: #fff;
+
+        &:hover {
+          color: #51bccb;
+          transition: 0.5s;
+        }
+      }
+    }
+
+    .display-flex {
+      display: inline-flex;
+    }
+
+    .display-field {
+      display: inline-flex;
+      margin-bottom: 10px;
+      margin-right: 10px;
+    }
+
+    .mr-20 {
+      margin-right: 20px;
+    }
+
+    .mt-10 {
+      margin-top: 10px;
+    }
+
+    .input-filed .form-control {
+      padding: 0.5rem 0.5rem;
+    }
+  }
+
+  .remove-item-btn {
+    font-size: 14px;
+  }
+
+  .submit-button {
+    text-align: right;
+    margin-right: 40px;
+    padding-bottom: 20px;
+
+    > button {
+      border-width: 0;
+      height: 32px;
+    }
+    i {
+      margin-right: 10px;
+    }
+  }
+}
+
+.form-submit-success {
+  margin: 20px auto;
+  max-width: 500px;
+  text-align: center;
+  border: 2px solid #25739f;
+  border-radius: 12px;
+}
+
+@media screen and (max-width: 920px) {
+  .profile-question {
+    .intake-caretaker-form {
+      .page-panel-group .page-panel-group-body {
+        .display-field {
+          display: block;
+        }
+
+        .sm-w-1-2 {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .profile-question {
+    .intake-caretaker-form {
+      .page-panel-group .page-panel-group-body {
+        .display-flex {
+          display: inline-flex;
+        }
+
+        .sm-w-1-2 {
+          width: 50%;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .profile-question {
+    .profile-question_title {
+      font-size: 28px;
+    }
+    .intake-caretaker-form {
+      .page-panel-group .page-panel-group-body {
+        .display-flex {
+          display: block;
+        }
+
+        .sm-w-1-2 {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 560px) {
+  .profile-question {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+}

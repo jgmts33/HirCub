@@ -1,0 +1,29 @@
+.chose-page-font-size {
+  align-items: flex-end;
+  margin-bottom: 25px;
+  justify-content: flex-end;
+}
+
+.chose-page-font-size button {
+  cursor: pointer;
+  text-decoration: underline;
+  margin: 0 6px;
+  line-height: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: white;
+}
+
+.chose-page-font-size .small {
+  font-size: 14px;
+}
+.chose-page-font-size .normal {
+  font-size: 17px;
+}
+.chose-page-font-size .large {
+  font-size: 20px;
+}
+.chose-page-font-size .lg-font-size {
+  font-size: 23px;
+}

@@ -1,0 +1,328 @@
+@import '../ui/var.scss';
+
+.library-form {
+  .library-wrapper {
+    padding: 30px;
+  }
+  .fa-star {
+    color: $text-dark-blue;
+  }
+
+  .library-title {
+    display: inline-flex;
+    width: 100%;
+
+    > h2 {
+      width: calc(100% - 510px);
+    }
+  }
+  .help-tip {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+
+    .question-box {
+      margin-bottom: 1.5rem;
+    }
+  }
+
+  .programs-and-services-list {
+    padding: 0.5rem;
+
+    .page-panel-group-title {
+      margin-bottom: 2rem;
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+
+    hr {
+      background-color: white;
+      color: white;
+      border: 0px;
+      height: 1px;
+    }
+  }
+
+  .page-panel-explain {
+    font-style: italic;
+    color: #5b5b5b;
+  }
+
+  .program-service__form {
+    background-color: #009dba;
+    padding: 13px;
+    border-radius: 10px 10px 0 0;
+    color: #fff;
+
+    .program-services-form {
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      -webkit-box-pack: unset;
+      -ms-flex-pack: unset;
+      justify-content: unset;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+    }
+
+    .input-block__wrapp {
+      width: calc(100% - 120px);
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+    }
+
+    .form-input,
+    .form-select,
+    .program-location,
+    .program-category {
+      color: #4c5069;
+      padding: 8px 7px;
+      border-radius: 4px;
+      outline: 0;
+      border: none;
+      min-width: 200px;
+      font-size: 14px;
+    }
+
+    .program-location {
+      min-width: 300px;
+      font-size: 14px;
+    }
+
+    .form-separator {
+      margin: 0 20px;
+    }
+
+    .program-search {
+      background-color: #ffe500;
+      color: #2a3773;
+      padding: 10px 20px;
+      border-radius: 4px;
+      text-transform: uppercase;
+
+      font-size: 13px;
+      border: none;
+      margin-left: 20px;
+      transition: 0.3s all;
+      i {
+        margin-left: 10px;
+      }
+      &:hover {
+        background-color: #e6cf00;
+      }
+    }
+
+    .program-reset {
+      color: #2a3773;
+      padding: 10px 20px;
+      border-radius: 4px;
+      text-transform: uppercase;
+      font-size: 13px;
+      width: -webkit-max-content;
+      width: -moz-max-content;
+      width: max-content;
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+      border: none;
+      background-color: #fff;
+    }
+  }
+}
+
+.suggestion-group {
+  padding: 0.5rem;
+  margin-bottom: 0rem;
+
+  .suggestion-group-title {
+    margin-bottom: 2rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+
+  .library-items-list {
+    .items-list li a {
+      color: $text-dark-blue;
+      width: 100%;
+      max-width: 390px;
+    }
+  }
+
+  .section-collapse .section-head {
+    margin-left: 0px;
+    margin-right: 20px;
+    color: black;
+    font-size: 1.5rem;
+    padding-left: 0.15rem;
+    padding-top: 0.75rem;
+    padding-right: 2.1em;
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  .library-form {
+    .programs-and-services-list {
+      .program-service__form {
+        .program-services-form {
+          .form-separator {
+            margin: 0;
+          }
+
+          .program-search {
+            min-width: 108px;
+            margin-left: 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1130px) {
+  .library-form {
+    .programs-and-services-list {
+      .program-service__form {
+        .program-services-form {
+          .program-location {
+            min-width: 200px;
+          }
+
+          .input-block__wrapp {
+            width: calc(100% - 80px);
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .library-form {
+    .library-wrapper {
+      padding: 20px 15px 15px;
+    }
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .library-form {
+    .library-title {
+      display: block;
+      width: 100%;
+
+      > h2 {
+        width: 100%;
+      }
+    }
+    .help-tip .question-box {
+      margin-bottom: 10px;
+    }
+
+    .programs-and-services-list {
+      .program-service__form {
+        .program-services-form {
+          -webkit-box-orient: vertical;
+          -webkit-box-direction: normal;
+          -ms-flex-direction: column;
+          flex-direction: column;
+
+          .program-category {
+            margin: 10px 0;
+            width: 100%;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            text-align: center;
+          }
+
+          .program-location {
+            margin: 10px 0;
+            width: 100%;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            text-align: center;
+          }
+
+          .program-search {
+            min-width: 108px;
+          }
+        }
+
+        .input-block__wrapp {
+          -webkit-box-orient: vertical;
+          -webkit-box-direction: normal;
+          -ms-flex-direction: column;
+          flex-direction: column;
+          margin-bottom: 15px;
+
+          .program-search {
+            margin-left: 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 860px) {
+  .library-form {
+    .library-wrapper {
+      padding: 16px 10px 10px;
+    }
+  }
+}
+
+@media screen and (max-width: 465px) {
+  .library-form {
+    .library-wrapper {
+      padding: 12px 6px 6px;
+    }
+
+    .suggestion-group {
+      padding: 0;
+      padding-top: 0.5rem;
+
+      .suggestion-group-title {
+        margin-bottom: 1.2rem;
+        font-size: 1.2rem;
+      }
+    }
+
+    .programs-and-services-list {
+      padding: 0;
+      .page-panel-group-title {
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+      }
+
+      .program-service__form {
+        .program-services-form {
+          -webkit-box-orient: vertical;
+          -webkit-box-direction: normal;
+          -ms-flex-direction: column;
+          flex-direction: column;
+
+          .program-category {
+            margin: 10px 0;
+            width: 100%;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            text-align: center;
+          }
+
+          .program-location {
+            margin: 10px 0;
+            width: 100%;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            text-align: center;
+            min-width: 220px;
+          }
+        }
+      }
+    }
+  }
+}

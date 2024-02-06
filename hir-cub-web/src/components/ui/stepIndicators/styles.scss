@@ -1,0 +1,39 @@
+.step-indicators {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  text-align: center;
+}
+.step-indicators span {
+  width: 40px;
+  height: 40px;
+  border-radius: 50px;
+  background: #a3c2d1;
+  color: #fff;
+  display: inline-block;
+  margin: 5px;
+  font-size: 24px;
+  line-height: 40px;
+  outline: none !important;
+  :hover {
+    background: #3486ae;
+  }
+  cursor: pointer;
+}
+.step-indicators span:hover {
+  background: #3486ae;
+}
+.step-indicators span.active {
+  background: #3486ae;
+  cursor: initial;
+}
+.step-indicators span.disabled {
+  background: #c5c5c5;
+  cursor: not-allowed;
+  outline: none;
+}
+.step-indicators span.small {
+  width: 30px;
+  height: 30px;
+}

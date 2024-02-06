@@ -1,0 +1,9 @@
+.question-list {
+  &_show-all {
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  &_list-container {
+    margin-top: 10px;
+  }
+}

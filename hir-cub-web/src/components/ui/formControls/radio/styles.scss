@@ -1,0 +1,52 @@
+.radio label {
+  cursor: pointer;
+}
+.radio .label-txt{
+  position: relative;
+  padding-left: 30px;
+  cursor: pointer;
+  display: block;
+}
+.radio input[type="radio"]{
+  display: none;
+}
+.radio input[type="radio"] + span::after{
+  content: '';
+  display: block;
+  width: 24px;
+  height: 24px;
+  margin-top: -4px;
+  margin-left: -4px;
+  margin-right: 0px;
+  border: 1.5px solid #636363;
+  border-radius: 50%;
+  -webkit-transition: 240ms;
+  background: transparent;
+  transition: 240ms;
+  cursor: pointer;
+  position: absolute;
+  top: 2px;
+  left: 0px;
+}
+.radio input[type="radio"]:checked + span::after{
+  border-color: #636363;
+}
+.radio input[type="radio"]:checked + span::before{
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 0px;
+  display: block;
+  border-radius: 50%;
+  width: 16px;
+  background: #25739f;
+  height: 16px;
+  border-top-width: 0;
+  border-left-width: 0;
+  cursor: pointer;
+  // z-index: 1;
+}
+.health-tracker-page .radio input[type="radio"] + span::after,
+.health-tracker-page .radio input[type="radio"]:checked + span::after{
+  border: 1.5px solid #25739f;
+}

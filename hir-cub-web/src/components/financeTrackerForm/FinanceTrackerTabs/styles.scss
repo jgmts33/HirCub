@@ -1,0 +1,47 @@
+.finance-group {
+  .finance-tracker_separator {
+    border-width: 1px;
+    border-color: #238ba7;
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+  .finance-block-group-btn {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    .btn {
+      margin-right: 0.5rem;
+      margin-bottom: 1.5rem;
+      padding: 20px 15px;
+      font-size: 14px;
+      flex-grow: 1;
+      flex-basis: 170px;
+      max-width: 210px;
+      margin: 10px;
+      line-height: 1;
+
+      &.-purpose-btn {
+        background-color: #00698c;
+        transition: 0.3s all;
+        border: 1px solid #00698c;
+        box-sizing: border-box;
+        &:hover {
+          background-color: #c5e5e8;
+          color: #00698c;
+          border: 1px solid #00698c;
+        }
+      }
+    }
+
+    &.\--custom {
+      .btn {
+        margin-bottom: 0;
+      }
+    }
+  }
+  .finance-block-graph__title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+}

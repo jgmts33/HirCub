@@ -1,0 +1,30 @@
+.finance-group{
+  .date-section {
+    display: flex;
+    align-items: center;
+    div {
+      min-width: 80px;
+      line-height: 34px;
+    }
+  }
+}
+
+@media screen and (max-width: 850px) and (min-width: 751px) {
+  .finance-group{
+    .date-section {
+      .input-datapicker-group {
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .finance-group{
+    .date-section {
+      .input-datapicker-group {
+        width: 100%;
+      }
+    }
+  }
+}

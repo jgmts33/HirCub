@@ -1,0 +1,73 @@
+@import '../var.scss';
+
+.section-collapse {
+  position: relative;
+  width: 100%;
+
+  .toggle-action {
+    position: absolute;
+    right: 40px;
+    top: 20px;
+    padding: 0;
+    height: 3em;
+    width: 10em;
+    background: none;
+    pointer-events: none;
+    color: $text-dark-blue;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    text-align: right;
+
+    > i {
+      margin-left: 8px;
+      color: $text-dark-blue;
+    }
+  }
+
+  .article-wrap {
+    margin-left: 40px;
+    margin-right: 40px;
+    height: 0;
+    overflow: hidden;
+    transition: all 0.2s ease-in;
+
+    .page-panel-group-container {
+      max-width: none;
+    }
+  }
+
+  .section-head {
+    margin-left: 24px;
+    margin-right: 20px;
+    overflow: hidden;
+    cursor: pointer;
+    font-weight: 600;
+    color: #222;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    padding: 1em;
+    padding-right: 2.1em;
+    @media screen and (max-width: 560px) {
+      margin-left: 0px;
+      margin-right: 0px;
+    }
+  }
+
+  &.open {
+    .article-wrap {
+      height: 100%;
+    }
+  }
+}
+
+@media print {
+  .section-collapse .article-wrap {
+    height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .toggle-action {
+    display: none;
+  }
+}

@@ -1,0 +1,50 @@
+.logout-modal {
+  position: absolute;
+  inset: 50% auto auto 49%;
+  border: 2px solid rgb(37, 115, 159);
+  background: rgb(255, 255, 255);
+  overflow: auto;
+  border-radius: 12px;
+  outline: none;
+  padding: 20px;
+  transform: translate(-50%, -50%);
+  min-width: 320px;
+  text-align: center;
+  
+  &-title {
+    font-size: 1.2rem;
+    color: #333;
+  }
+
+  &-description {
+    color: #333;
+  }
+
+  &_submit {
+    align-items: center;
+    margin-top: 24px;
+
+    >button {
+      margin-left: 8px;
+      margin-right: 8px;
+    }
+  }
+  
+  .close-modal {
+    border: none;
+    background: transparent;
+    color: #2875a1;
+    font-size: 34px;
+    position: absolute;
+    right: 5px;
+    top: 5px;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .logout-modal {
+    padding: 16px;
+    width: 90%;
+    min-width: 120px;
+  }
+}

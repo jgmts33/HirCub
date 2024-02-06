@@ -1,0 +1,369 @@
+.journal-entries {
+  padding: 30px;
+  font-weight: 400;
+  width: 100%;
+
+  .DayPickerInput-OverlayWrapper {
+    z-index: 5;
+  }
+
+  .question-box {
+    .help-box {
+      div {
+        max-width: 240px;
+      }
+    }
+  }
+
+  &-list {
+    margin-top: 20px;
+    background: white;
+    padding: 20px;
+    border-radius: 4px;
+
+    &__no-result {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 10rem;
+      font-weight: 700;
+    }
+  }
+
+  .journal-entry {
+    margin-bottom: 17px;
+    padding-bottom: 17px;
+    border-bottom: 1px solid #888;
+
+    &-form {
+      &__left-title {
+        margin-bottom: 4px;
+        text-transform: uppercase;
+        font-size: 0.8rem;
+        margin-left: 2px;
+      }
+
+      &__left {
+        display: flex;
+        align-items: center;
+        //margin-top: 4px;
+        margin-bottom: 10px;
+        width: 80%;
+      }
+
+      &__left.sort-item {
+        border-bottom: solid 1px #888;
+        padding-bottom: 10px;
+        margin-bottom: 10px;
+      }
+
+      &__right {
+        margin-top: 8px;
+      }
+
+      display: block;
+
+      .input-datapicker-group {
+        color: #000 !important;
+        input {
+          //border-radius: 20px;
+          height: auto;
+          padding: 8px 16px;
+        }
+
+        .journal-search-input {
+          width: 20rem;
+          font-size: 0.8rem;
+          line-height: 1rem;
+          padding-left: 2rem;
+        }
+
+        .search-icon {
+          position: absolute;
+          z-index: 0;
+          display: block;
+          padding-left: 0.3rem;
+          width: 2rem;
+          height: 2rem;
+          line-height: 2.2rem;
+          text-align: center;
+          pointer-events: none;
+          color: #888;
+
+          font-size: 0.8rem;
+        }
+      }
+
+      .select__control {
+        //border-radius: 20px;
+        font-size: 14px;
+        svg {
+          fill: #333;
+        }
+      }
+
+      .select__value-container {
+        padding-top: 0;
+        padding-bottom: 0;
+        padding-left: 10px;
+        line-height: 1.2rem;
+      }
+
+      .filter-multi-select {
+        width: 10rem;
+
+        .select__input {
+          color: transparent !important;
+
+          &:focus {
+            outline: none !important;
+          }
+        }
+      }
+
+      .input-start-date,
+      .input-end-date {
+        width: 30%;
+        .DayPickerInput input {
+          width: 100%;
+          font-size: 14px;
+          line-height: 1rem;
+          border: 2px solid #00698c;
+          outline: none;
+        }
+      }
+      .input-tag {
+        width: 40%;
+        .filter-multi-select {
+          width: 100%;
+          font-size: 14px;
+          line-height: 1rem;
+          .select__control {
+            font-size: 14px;
+            border: 2px solid #00698c;
+            outline: none;
+            &:focus-visible {
+              outline: none;
+            }
+          }
+        }
+      }
+    }
+
+    &__date {
+      margin: 0;
+      font-size: 14px;
+      font-weight: 700;
+      text-transform: uppercase;
+      justify-content: space-between;
+
+      div {
+        width: calc(100% - 30px);
+      }
+    }
+
+    &__title {
+      margin-bottom: 5px;
+      font-size: 20px;
+      color: #000;
+      text-decoration: none;
+      cursor: pointer;
+      text-transform: capitalize;
+    }
+    &__title_normal {
+      margin-bottom: 5px;
+      font-size: 20px;
+      color: #000;
+      text-transform: capitalize;
+    }
+
+    &__description {
+      margin: 0.2rem 0 0;
+      font-size: 15px;
+
+      * {
+        margin: 0;
+      }
+    }
+
+    &__load-more {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-transform: uppercase;
+      font-weight: 700;
+
+      a {
+        font-size: 16px;
+        text-decoration: none;
+        color: #2a7c91;
+      }
+
+      .fa {
+        margin-left: 0.5rem;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1440px) {
+  .journal-entries {
+    padding: 20px 15px 15px;
+
+    .horizontal-line {
+      margin-top: 15px;
+      margin-bottom: 15px;
+    }
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  .journal-entries {
+    .journal-entry {
+      &-form__left {
+        width: 90%;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .journal-entries {
+    .journal-entry {
+      &-form__left {
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .journal-entries {
+    .question-box {
+      h2 {
+        min-width: 160px;
+        text-align: left;
+      }
+
+      .button-help {
+        min-width: 100px;
+      }
+
+      .text-help-desc {
+        font-size: 11px;
+        font-weight: 600;
+      }
+    }
+
+    p {
+      font-size: 0.9rem;
+    }
+  }
+}
+
+@media screen and (max-width: 880px) {
+  .journal-entries {
+    padding: 16px 10px 10px;
+
+    .journal-entry {
+      &-form {
+        .input-datapicker-group {
+          margin-right: 5px;
+
+          .journal-search-input {
+            width: 18rem;
+          }
+        }
+      }
+    }
+    .question-box {
+      h2 {
+        min-width: 160px;
+        text-align: left;
+      }
+
+      .button-help {
+        min-width: 90px;
+        padding: 8px 16px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .journal-entries {
+    .question-box {
+      h2 {
+        min-width: 130px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .journal-entries {
+    .journal-entry {
+      &-form {
+        .input-datapicker-group {
+          .journal-search-input {
+            width: 18rem;
+          }
+        }
+
+        .input-start-date,
+        .input-end-date {
+          width: 30%;
+          .DayPickerInput input {
+            width: 100%;
+          }
+        }
+        .input-tag {
+          width: 40%;
+          .filter-multi-select {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 465px) {
+  .journal-entries {
+    padding: 12px 6px 6px;
+
+    .question-box {
+      display: block;
+    }
+
+    .journal-entry {
+      &-form {
+        &__left {
+          display: block;
+          justify-content: space-between;
+
+          .input-datapicker-group {
+            margin-right: 0;
+            margin-bottom: 4px;
+
+            input {
+              width: 100%;
+            }
+
+            .DayPickerInput input,
+            .filter-multi-select,
+            .journal-search-input {
+              width: 100%;
+            }
+          }
+
+          .input-start-date,
+          .input-end-date,
+          .input-tag {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}

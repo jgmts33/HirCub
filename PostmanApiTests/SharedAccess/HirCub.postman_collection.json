@@ -1,0 +1,2007 @@
+{
+	"info": {
+		"_postman_id": "77fb4312-0a77-47ae-b12e-139ad3e4c199",
+		"name": "CareHub",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Shared Access (impersonation)",
+			"item": [
+				{
+					"name": "01_register_user_A",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"let userName = 'UU.' + pm.variables.replaceIn(\"{{$randomPassword}}\");\r",
+									"let userPwd = pm.variables.replaceIn(\"{{$randomPassword}}\") + '!';\r",
+									"let userEmail = 'A_' + pm.variables.replaceIn(\"{{$randomEmail}}\");\r",
+									"\r",
+									"pm.collectionVariables.set('user_A', userName);\r",
+									"pm.collectionVariables.set('user_A_pwd', userPwd);\r",
+									"pm.collectionVariables.set('user_A_email', userEmail);\r",
+									"pm.collectionVariables.set('user_A_email_encoded', encodeURIComponent(pm.variables.get('user_A_email')));\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Register user A', function() {\r",
+									"    pm.response.to.have.status(200);\r",
+									"    const responseJson = pm.response.json();\r",
+									"    pm.expect(responseJson.success).to.be.true;\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"displayName\": \"Test User\",\r\n    \"postalCode\": \"h2t-1b8\",\r\n    \"email\": \"{{user_A_email}}\",\r\n    \"password\": \"{{user_A_pwd}}\",\r\n    \"accountType\": 1\r\n}\r\n"
+						},
+						"url": {
+							"raw": "{{url}}/account/register",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"account",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "02_register_user_B",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"let userName = 'UU.' + pm.variables.replaceIn(\"{{$randomPassword}}\");\r",
+									"let userPwd = pm.variables.replaceIn(\"{{$randomPassword}}!\");\r",
+									"let userEmail = 'B_' + pm.variables.replaceIn(\"{{$randomEmail}}\");\r",
+									"\r",
+									"pm.collectionVariables.set('user_B', userName);\r",
+									"pm.collectionVariables.set('user_B_pwd', userPwd);\r",
+									"pm.collectionVariables.set('user_B_email', userEmail);\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Register user B', function() {\r",
+									"    pm.response.to.have.status(200);\r",
+									"    const responseJson = pm.response.json();\r",
+									"    pm.expect(responseJson.success).to.be.true;\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"displayName\": \"Test User\",\r\n    \"postalCode\": \"H2Z1B8\",\r\n    \"email\": \"{{user_B_email}}\",\r\n    \"password\": \"{{user_B_pwd}}\",\r\n    \"accountType\": 1\r\n}\r\n"
+						},
+						"url": {
+							"raw": "{{url}}/account/register",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"account",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "03_login_A",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Login user A', function() {\r",
+									"    pm.response.to.have.status(200);\r",
+									"    const responseJson = pm.response.json();\r",
+									"    pm.expect(responseJson.success).to.be.true;\r",
+									"\r",
+									"    if (responseJson.errors != null && responseJson.errors.length != 0) {\r",
+									"        for (var i = 0; i < responseJson.errors.length; i++) {\r",
+									"            console.log(responseJson.errors[0]);\r",
+									"        }\r",
+									"        pm.expect.fail(\"Error(s)\");\r",
+									"    } else {\r",
+									"        // set JWT after login\r",
+									"        pm.collectionVariables.set('jwt', 'Bearer ' + responseJson.returned.authToken);\r",
+									"    }\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"{{user_A_email}}\",\r\n    \"password\": \"{{user_A_pwd}}\"\r\n}\r\n"
+						},
+						"url": {
+							"raw": "{{url}}/account/login",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"account",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "04_invite_B_set_1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('A: Invite B with HealthTrackerRead and CalendarWrite', function() {\r",
+									"    pm.response.to.have.status(200);\r",
+									"    const responseJson = pm.response.json();\r",
+									"    pm.expect(responseJson.success).to.be.true;\r",
+									"\r",
+									"    if (responseJson.errors != null && responseJson.errors.length != 0) {\r",
+									"        for (var i = 0; i < responseJson.errors.length; i++) {\r",
+									"            console.log(responseJson.errors[0]);\r",
+									"        }\r",
+									"        pm.expect.fail(\"Error(s)\");\r",
+									"    }\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{jwt}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"{{user_B_email}}\",\r\n    \"roles\": [\r\n        \"HealthTrackerRead\",\r\n        \"CalendarWrite\"\r\n    ]\r\n}\r\n"
+						},
+						"url": {
+							"raw": "{{url}}/account/invite",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"account",
+								"invite"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "05_login_B",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Login user B', function() {\r",
+									"    pm.response.to.have.status(200);\r",
+									"    const responseJson = pm.response.json();\r",
+									"    pm.expect(responseJson.success).to.be.true;\r",
+									"\r",
+									"    if (responseJson.errors != null && responseJson.errors.length != 0) {\r",
+									"        for (var i = 0; i < responseJson.errors.length; i++) {\r",
+									"            console.log(responseJson.errors[0]);\r",
+									"        }\r",
+									"        pm.expect.fail(\"Error(s)\");\r",
+									"    } else {\r",
+									"        // set JWT after login\r",
+									"        pm.collectionVariables.set('jwt', 'Bearer ' + responseJson.returned.authToken);\r",
+									"    }\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"{{user_B_email}}\",\r\n    \"password\": \"{{user_B_pwd}}\"\r\n}\r\n"
+						},
+						"url": {
+							"raw": "{{url}}/account/login",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"account",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "06_1_check_own_personality",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('B: Check own personality (email)', function() {\r",
+									"    pm.response.to.have.status(200);\r",
+									"    const responseJson = pm.response.json();\r",
+									"    pm.expect(responseJson.success).to.be.true;\r",
+									"\r",
+									"    if (responseJson.errors != null && responseJson.errors.length != 0) {\r",
+									"        for (var i = 0; i < responseJson.errors.length; i++) {\r",
+									"            console.log(responseJson.errors[0]);\r",
+									"        }\r",
+									"        pm.expect.fail(\"Error(s)\");\r",
+									"    } else {\r",
+									"        // Check we are User B\r",
+									"        pm.expect(responseJson.returned.profile.email).to.eql(pm.variables.get('user_B_email'));\r",
+									"    }\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{jwt}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/account/profile",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"account",
+								"profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "06_2_check_own_access",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('B: Check own access - get some report', function() {\r",
+									"    pm.response.to.have.status(200);\r",
+									"    const responseJson = pm.response.json();\r",
+									"    pm.expect(responseJson.success).to.be.true;\r",
+									"\r",
+									"    if (responseJson.errors != null && responseJson.errors.length != 0) {\r",
+									"        for (var i = 0; i < responseJson.errors.length; i++) {\r",
+									"            console.log(responseJson.errors[0]);\r",
+									"        }\r",
+									"        pm.expect.fail(\"Error(s)\");\r",
+									"    }\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{jwt}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/reports/getreport?isConcerns=true",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"reports",
+								"getreport"
+							],
+							"query": [
+								{
+									"key": "isConcerns",
+									"value": "true"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "06_3_check_impersonation_options",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('B: Check we can impersonate User A', function() {\r",
+									"    pm.response.to.have.status(200);\r",
+									"    const responseJson = pm.response.json();\r",
+									"    pm.expect(responseJson.success).to.be.true;\r",
+									"\r",
+									"    if (responseJson.errors != null && responseJson.errors.length != 0) {\r",
+									"        for (var i = 0; i < responseJson.errors.length; i++) {\r",
+									"            console.log(responseJson.errors[0]);\r",
+									"        }\r",
+									"        pm.expect.fail(\"Error(s)\");\r",
+									"    } else {\r",
+									"        // Check we are granted to impersonate User A with 2 allowed roles\r",
+									"        pm.expect(responseJson.returned.length).to.eql(1);\r",
+									"        let impers = responseJson.returned[0];\r",
+									"        pm.expect(impers.email).to.eql(pm.variables.get('user_A_email'));\r",
+									"        pm.expect(impers.roles).to.include('HealthTrackerRead');\r",
+									"        pm.expect(impers.roles).to.include('CalendarWrite');\r",
+									"    }\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{jwt}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/account/impersonate",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"account",
+								"impersonate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "07_1_set_name",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('B: Set A\\'s name', function() {\r",
+									"    pm.response.to.have.status(200);\r",
+									"    const responseJson = pm.response.json();\r",
+									"    pm.expect(responseJson.success).to.be.true;\r",
+									"\r",
+									"    if (responseJson.errors != null && responseJson.errors.length != 0) {\r",
+									"        for (var i = 0; i < responseJson.errors.length; i++) {\r",
+									"            console.log(responseJson.errors[0]);\r",
+									"        }\r",
+									"        pm.expect.fail(\"Error(s)\");\r",
+									"    }\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{jwt}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"{{user_A_email}}\",\r\n    \"name\": \"Test\"\r\n}\r\n"
+						},
+						"url": {
+							"raw": "{{url}}/account/impersonation-name",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"account",
+								"impersonation-name"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "07_2_set_name_check",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('B: Check A\\'s name', function() {\r",
+									"    pm.response.to.have.status(200);\r",
+									"    const responseJson = pm.response.json();\r",
+									"    pm.expect(responseJson.success).to.be.true;\r",
+									"\r",
+									"    if (responseJson.errors != null && responseJson.errors.length != 0) {\r",
+									"        for (var i = 0; i < responseJson.errors.length; i++) {\r",
+									"            console.log(responseJson.errors[0]);\r",
+									"        }\r",
+									"        pm.expect.fail(\"Error(s)\");\r",
+									"    } else {\r",
+									"        // Check we are granted to impersonate User A with 2 allowed roles\r",
+									"        pm.expect(responseJson.returned.length).to.eql(1);\r",
+									"        let impers = responseJson.returned[0];\r",
+									"        pm.expect(impers.email).to.eql(pm.variables.get('user_A_email'));\r",
+									"        pm.expect(impers.name).to.eql('Test');\r",
+									"        pm.expect(impers.roles).to.include('HealthTrackerRead');\r",
+									"        pm.expect(impers.roles).to.include('CalendarWrite');\r",
+									"    }\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{jwt}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/account/impersonate",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"account",
+								"impersonate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "07_3_set_name_other",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('B: Set other name for A', function() {\r",
+									"    pm.response.to.have.status(200);\r",
+									"    const responseJson = pm.response.json();\r",
+									"    pm.expect(responseJson.success).to.be.true;\r",
+									"\r",
+									"    if (responseJson.errors != null && responseJson.errors.length != 0) {\r",
+									"        for (var i = 0; i < responseJson.errors.length; i++) {\r",
+									"            console.log(responseJson.errors[0]);\r",
+									"        }\r",
+									"        pm.expect.fail(\"Error(s)\");\r",
+									"    }\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{jwt}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"{{user_A_email}}\",\r\n    \"name\": \"Dad\"\r\n}\r\n"
+						},
+						"url": {
+							"raw": "{{url}}/account/impersonation-name",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"account",
+								"impersonation-name"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "08_impersonate_A",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('B: Check we are now A, and save the new JWT', function() {\r",
+									"    pm.response.to.have.status(200);\r",
+									"    const responseJson = pm.response.json();\r",
+									"    pm.expect(responseJson.success).to.be.true;\r",
+									"\r",
+									"    if (responseJson.errors != null && responseJson.errors.length != 0) {\r",
+									"        for (var i = 0; i < responseJson.errors.length; i++) {\r",
+									"            console.log(responseJson.errors[0]);\r",
+									"        }\r",
+									"        pm.expect.fail(\"Error(s)\");\r",
+									"    } else {\r",
+									"        // Check we work on behalf of User A\r",
+									"        pm.expect(responseJson.returned.onBehalfOf.email).to.eql(pm.variables.get('user_A_email'));\r",
+									"        pm.expect(responseJson.returned.onBehalfOf.name).to.eql('Dad');\r",
+									"        pm.expect(responseJson.returned.onBehalfOf.roles.length).to.eql(2);\r",
+									"        pm.expect(responseJson.returned.onBehalfOf.roles).to.include('HealthTrackerRead');\r",
+									"        pm.expect(responseJson.returned.onBehalfOf.roles).to.include('CalendarWrite');\r",
+									"        // Replace the JWT\r",
+									"        pm.collectionVariables.set('jwt', 'Bearer ' + responseJson.returned.authToken);\r",
+									"    }\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{jwt}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/account/impersonate/{{user_A_email_encoded}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"account",
+								"impersonate",
+								"{{user_A_email_encoded}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "09_check_allowed_access",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('B: Check we can access Health Tracker', function() {\r",
+									"    pm.response.to.have.status(200);\r",
+									"    const responseJson = pm.response.json();\r",
+									"    pm.expect(responseJson.success).to.be.true;\r",
+									"\r",
+									"    if (responseJson.errors != null && responseJson.errors.length != 0) {\r",
+									"        for (var i = 0; i < responseJson.errors.length; i++) {\r",
+									"            console.log(responseJson.errors[0]);\r",
+									"        }\r",
+									"        pm.expect.fail(\"Error(s)\");\r",
+									"    }\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{jwt}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/healthTracker/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"healthTracker",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "10_check_FORBIDDEN_access",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('B: Check we cannot access Finance Records', function() {\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([401, 403]);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{jwt}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/financeRecord/GetAll",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"financeRecord",
+								"GetAll"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "11_login_A",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Login user A', function() {\r",
+									"    pm.response.to.have.status(200);\r",
+									"    const responseJson = pm.response.json();\r",
+									"    pm.expect(responseJson.success).to.be.true;\r",
+									"\r",
+									"    if (responseJson.errors != null && responseJson.errors.length != 0) {\r",
+									"        for (var i = 0; i < responseJson.errors.length; i++) {\r",
+									"            console.log(responseJson.errors[0]);\r",
+									"        }\r",
+									"        pm.expect.fail(\"Error(s)\");\r",
+									"    } else {\r",
+									"        // set JWT after login\r",
+									"        pm.collectionVariables.set('jwt', 'Bearer ' + responseJson.returned.authToken);\r",
+									"    }\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"{{user_A_email}}\",\r\n    \"password\": \"{{user_A_pwd}}\"\r\n}\r\n"
+						},
+						"url": {
+							"raw": "{{url}}/account/login",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"account",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "12_invite_B_set_2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('A: Invite B with HealthTrackerRead and CalendarWrite', function() {\r",
+									"    pm.response.to.have.status(200);\r",
+									"    const responseJson = pm.response.json();\r",
+									"    pm.expect(responseJson.success).to.be.true;\r",
+									"\r",
+									"    if (responseJson.errors != null && responseJson.errors.length != 0) {\r",
+									"        for (var i = 0; i < responseJson.errors.length; i++) {\r",
+									"            console.log(responseJson.errors[0]);\r",
+									"        }\r",
+									"        pm.expect.fail(\"Error(s)\");\r",
+									"    }\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{jwt}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"{{user_B_email}}\",\r\n    \"roles\": [\r\n        \"HealthTrackerWrite\",\r\n        \"FinanceTrackerRead\",\r\n        \"FinanceTrackerWrite\"\r\n    ]\r\n}\r\n"
+						},
+						"url": {
+							"raw": "{{url}}/account/invite",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"account",
+								"invite"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "13_login_B",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Login user B', function() {\r",
+									"    pm.response.to.have.status(200);\r",
+									"    const responseJson = pm.response.json();\r",
+									"    pm.expect(responseJson.success).to.be.true;\r",
+									"\r",
+									"    if (responseJson.errors != null && responseJson.errors.length != 0) {\r",
+									"        for (var i = 0; i < responseJson.errors.length; i++) {\r",
+									"            console.log(responseJson.errors[0]);\r",
+									"        }\r",
+									"        pm.expect.fail(\"Error(s)\");\r",
+									"    } else {\r",
+									"        // set JWT after login\r",
+									"        pm.collectionVariables.set('jwt', 'Bearer ' + responseJson.returned.authToken);\r",
+									"    }\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"{{user_B_email}}\",\r\n    \"password\": \"{{user_B_pwd}}\"\r\n}\r\n"
+						},
+						"url": {
+							"raw": "{{url}}/account/login",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"account",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "14_check_options_are_different",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('B: Check impersonation options are different', function() {\r",
+									"    pm.response.to.have.status(200);\r",
+									"    const responseJson = pm.response.json();\r",
+									"    pm.expect(responseJson.success).to.be.true;\r",
+									"\r",
+									"    if (responseJson.errors != null && responseJson.errors.length != 0) {\r",
+									"        for (var i = 0; i < responseJson.errors.length; i++) {\r",
+									"            console.log(responseJson.errors[0]);\r",
+									"        }\r",
+									"        pm.expect.fail(\"Error(s)\");\r",
+									"    } else {\r",
+									"        // Check we are granted to impersonate User A with 3 new allowed roles\r",
+									"        pm.expect(responseJson.returned.length).to.eql(1);\r",
+									"        let impers = responseJson.returned[0];\r",
+									"        pm.expect(impers.email).to.eql(pm.variables.get('user_A_email'));\r",
+									"        pm.expect(impers.roles.length).to.eql(3);\r",
+									"        pm.expect(impers.roles).to.include('HealthTrackerWrite');\r",
+									"        pm.expect(impers.roles).to.include('FinanceTrackerRead');\r",
+									"        pm.expect(impers.roles).to.include('FinanceTrackerWrite');\r",
+									"    }\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{jwt}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/account/impersonate",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"account",
+								"impersonate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "15_register_user_C",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"let userName = 'UU.' + pm.variables.replaceIn(\"{{$randomPassword}}\");\r",
+									"let userPwd = pm.variables.replaceIn(\"{{$randomPassword}}\") + '!';\r",
+									"let userEmail = 'C_' + pm.variables.replaceIn(\"{{$randomEmail}}\");\r",
+									"\r",
+									"pm.collectionVariables.set('user_C', userName);\r",
+									"pm.collectionVariables.set('user_C_pwd', userPwd);\r",
+									"pm.collectionVariables.set('user_C_email', userEmail);\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Register user C', function() {\r",
+									"    pm.response.to.have.status(200);\r",
+									"    const responseJson = pm.response.json();\r",
+									"    pm.expect(responseJson.success).to.be.true;\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"displayName\": \"Test User\",\r\n    \"postalCode\": \"H2Z1B8\",\r\n    \"email\": \"{{user_C_email}}\",\r\n    \"password\": \"{{user_C_pwd}}\",\r\n    \"accountType\": 1\r\n}\r\n"
+						},
+						"url": {
+							"raw": "{{url}}/account/register",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"account",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "16_login_C",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Login user C', function() {\r",
+									"    pm.response.to.have.status(200);\r",
+									"    const responseJson = pm.response.json();\r",
+									"    pm.expect(responseJson.success).to.be.true;\r",
+									"\r",
+									"    if (responseJson.errors != null && responseJson.errors.length != 0) {\r",
+									"        for (var i = 0; i < responseJson.errors.length; i++) {\r",
+									"            console.log(responseJson.errors[0]);\r",
+									"        }\r",
+									"        pm.expect.fail(\"Error(s)\");\r",
+									"    } else {\r",
+									"        // set JWT after login\r",
+									"        pm.collectionVariables.set('jwt', 'Bearer ' + responseJson.returned.authToken);\r",
+									"    }\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"{{user_C_email}}\",\r\n    \"password\": \"{{user_C_pwd}}\"\r\n}\r\n"
+						},
+						"url": {
+							"raw": "{{url}}/account/login",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"account",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "17_invite_B_from_C",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('A: Invite B with HealthTrackerRead and CalendarWrite', function() {\r",
+									"    pm.response.to.have.status(200);\r",
+									"    const responseJson = pm.response.json();\r",
+									"    pm.expect(responseJson.success).to.be.true;\r",
+									"\r",
+									"    if (responseJson.errors != null && responseJson.errors.length != 0) {\r",
+									"        for (var i = 0; i < responseJson.errors.length; i++) {\r",
+									"            console.log(responseJson.errors[0]);\r",
+									"        }\r",
+									"        pm.expect.fail(\"Error(s)\");\r",
+									"    }\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{jwt}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"{{user_B_email}}\",\r\n    \"roles\": [\r\n        \"HealthTrackerRead\",\r\n        \"CalendarWrite\"\r\n    ]\r\n}\r\n"
+						},
+						"url": {
+							"raw": "{{url}}/account/invite",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"account",
+								"invite"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "18_login_B",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Login user B', function() {\r",
+									"    pm.response.to.have.status(200);\r",
+									"    const responseJson = pm.response.json();\r",
+									"    pm.expect(responseJson.success).to.be.true;\r",
+									"\r",
+									"    if (responseJson.errors != null && responseJson.errors.length != 0) {\r",
+									"        for (var i = 0; i < responseJson.errors.length; i++) {\r",
+									"            console.log(responseJson.errors[0]);\r",
+									"        }\r",
+									"        pm.expect.fail(\"Error(s)\");\r",
+									"    } else {\r",
+									"        // set JWT after login\r",
+									"        pm.collectionVariables.set('jwt', 'Bearer ' + responseJson.returned.authToken);\r",
+									"    }\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"{{user_B_email}}\",\r\n    \"password\": \"{{user_B_pwd}}\"\r\n}\r\n"
+						},
+						"url": {
+							"raw": "{{url}}/account/login",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"account",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "19_check_impersonation_options",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('B: Check we can impersonate User A', function() {\r",
+									"    pm.response.to.have.status(200);\r",
+									"    const responseJson = pm.response.json();\r",
+									"    pm.expect(responseJson.success).to.be.true;\r",
+									"\r",
+									"    if (responseJson.errors != null && responseJson.errors.length != 0) {\r",
+									"        for (var i = 0; i < responseJson.errors.length; i++) {\r",
+									"            console.log(responseJson.errors[0]);\r",
+									"        }\r",
+									"        pm.expect.fail(\"Error(s)\");\r",
+									"    } else {\r",
+									"        // Check we are granted to impersonate User A with 3 allowed roles\r",
+									"        // AND User C with 2 allowed roles\r",
+									"        pm.expect(responseJson.returned.length).to.eql(2);\r",
+									"\r",
+									"        let impersA = responseJson.returned.find(r => r.email === pm.variables.get('user_A_email'));\r",
+									"        pm.expect(impersA.roles).to.include('HealthTrackerWrite');\r",
+									"        pm.expect(impersA.roles).to.include('FinanceTrackerRead');\r",
+									"        pm.expect(impersA.roles).to.include('FinanceTrackerWrite');\r",
+									"\r",
+									"        let impersC = responseJson.returned.find(r => r.email === pm.variables.get('user_C_email'));\r",
+									"        pm.expect(impersC.roles).to.include('HealthTrackerRead');\r",
+									"        pm.expect(impersC.roles).to.include('CalendarWrite');\r",
+									"    }\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{jwt}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/account/impersonate",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"account",
+								"impersonate"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "CreatePatient",
+			"item": [
+				{
+					"name": "01_register_as_caregiver",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"let userName = 'Caregiver.' + pm.variables.replaceIn(\"{{$randomPassword}}\");\r",
+									"let userPwd = pm.variables.replaceIn(\"{{$randomPassword}}\") + '!';\r",
+									"let userEmail = 'Caregiver_' + pm.variables.replaceIn(\"{{$randomEmail}}\");\r",
+									"\r",
+									"pm.collectionVariables.set('caregiverEmail', userEmail);\r",
+									"pm.collectionVariables.set('caregiverNickname', userName);\r",
+									"pm.collectionVariables.set('caregiverPassword', userPwd);\r",
+									"\r",
+									"// Patients:\r",
+									"\r",
+									"// 1 - with email:\r",
+									"userName = 'Patient1.' + pm.variables.replaceIn(\"{{$randomPassword}}\");\r",
+									"userPwd = pm.variables.replaceIn(\"{{$randomPassword}}\") + '!';\r",
+									"userEmail = 'Patient1_' + pm.variables.replaceIn(\"{{$randomEmail}}\");\r",
+									"\r",
+									"pm.collectionVariables.set('patient1Email', userEmail);\r",
+									"pm.collectionVariables.set('patient1Nickname', userName);\r",
+									"pm.collectionVariables.set('patient1Password', userPwd);\r",
+									"\r",
+									"// 2 - without email:\r",
+									"userName = 'Patient2.' + pm.variables.replaceIn(\"{{$randomPassword}}\");\r",
+									"pm.collectionVariables.set('patient2Nickname', userName);\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Register a Caregiver', function() {\r",
+									"    pm.response.to.have.status(200);\r",
+									"    const responseJson = pm.response.json();\r",
+									"    pm.expect(responseJson.success).to.be.true;\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"displayName\": \"Test User\",\r\n    \"postalCode\": \"H2Z1B8\",\r\n    \"email\": \"{{caregiverEmail}}\",\r\n    \"password\": \"{{caregiverPassword}}\",\r\n    \"accountType\": 1\r\n}\r\n"
+						},
+						"url": {
+							"raw": "{{url}}/account/register",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"account",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "02_login",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Login as a Caregiver', function() {\r",
+									"    pm.response.to.have.status(200);\r",
+									"    const responseJson = pm.response.json();\r",
+									"    pm.expect(responseJson.success).to.be.true;\r",
+									"\r",
+									"    if (responseJson.errors != null && responseJson.errors.length != 0) {\r",
+									"        for (var i = 0; i < responseJson.errors.length; i++) {\r",
+									"            console.log(responseJson.errors[0]);\r",
+									"        }\r",
+									"        pm.expect.fail(\"Error(s)\");\r",
+									"    } else {\r",
+									"        // set JWT after login\r",
+									"        pm.collectionVariables.set('jwt', 'Bearer ' + responseJson.returned.authToken);\r",
+									"    }\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"{{caregiverEmail}}\",\r\n    \"password\": \"{{caregiverPassword}}\"\r\n}\r\n"
+						},
+						"url": {
+							"raw": "{{url}}/account/login",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"account",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "03_createPatient_w_email",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Create Patient 1 with email and trying to pretend she/he is a Caregiver', function() {\r",
+									"    pm.response.to.have.status(200);\r",
+									"    const responseJson = pm.response.json();\r",
+									"    pm.expect(responseJson.success).to.be.true;\r",
+									"\r",
+									"    if (responseJson.errors != null && responseJson.errors.length != 0) {\r",
+									"        for (var i = 0; i < responseJson.errors.length; i++) {\r",
+									"            console.log(responseJson.errors[0]);\r",
+									"        }\r",
+									"        pm.expect.fail(\"Error(s)\");\r",
+									"    } else {\r",
+									"        // update JWT because now we impersonate the new Patient\r",
+									"        pm.collectionVariables.set('jwt', 'Bearer ' + responseJson.returned.authToken);\r",
+									"    }\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{jwt}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"displayName\": \"{{patient1Nickname}}\",\r\n    \"postalCode\": \"H2Z1B8\",\r\n    \"email\": \"{{patient1Email}}\",\r\n    \"password\": \"{{patient1Password}}\",\r\n    \"accountType\": 1\r\n}\r\n"
+						},
+						"url": {
+							"raw": "{{url}}/account/createPatient",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"account",
+								"createPatient"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "04_check_we_are_patient1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Check Patient\\'s personality', function() {\r",
+									"    pm.response.to.have.status(200);\r",
+									"    const responseJson = pm.response.json();\r",
+									"    pm.expect(responseJson.success).to.be.true;\r",
+									"\r",
+									"    if (responseJson.errors != null && responseJson.errors.length != 0) {\r",
+									"        for (var i = 0; i < responseJson.errors.length; i++) {\r",
+									"            console.log(responseJson.errors[0]);\r",
+									"        }\r",
+									"        pm.expect.fail(\"Error(s)\");\r",
+									"    } else {\r",
+									"        // Check we are the new Patient\r",
+									"        pm.expect(responseJson.returned.profile.email).to.eql(pm.variables.get('patient1Email'));\r",
+									"        pm.expect(responseJson.returned.profile.screenName).to.eql(pm.variables.get('patient1Nickname'));\r",
+									"        pm.expect(responseJson.returned.profile.postalCode).to.eql('H2Z1B8');\r",
+									"        pm.expect(responseJson.returned.profile.accountType).to.eql(2); // we set 1 (Caregiver) in the prev. parameters, but still should get 2 (Patient)\r",
+									"    }\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{jwt}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/account/profile",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"account",
+								"profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "05_deimpersonate",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Check we are a Caregiver again', function() {\r",
+									"    pm.response.to.have.status(200);\r",
+									"    const responseJson = pm.response.json();\r",
+									"    pm.expect(responseJson.success).to.be.true;\r",
+									"\r",
+									"    if (responseJson.errors != null && responseJson.errors.length != 0) {\r",
+									"        for (var i = 0; i < responseJson.errors.length; i++) {\r",
+									"            console.log(responseJson.errors[0]);\r",
+									"        }\r",
+									"        pm.expect.fail(\"Error(s)\");\r",
+									"    } else {\r",
+									"        // set JWT after login\r",
+									"        pm.collectionVariables.set('jwt', 'Bearer ' + responseJson.returned.authToken);\r",
+									"\r",
+									"        // Check our personality\r",
+									"        pm.expect(responseJson.returned.accountType).to.eql(1);\r",
+									"        pm.expect(responseJson.returned.onBehalfOf).to.be.null;\r",
+									"    }\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{jwt}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/account/deimpersonate",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"account",
+								"deimpersonate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "06_createPatient_wo_email",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Create Patient 2 without email', function() {\r",
+									"    pm.response.to.have.status(200);\r",
+									"    const responseJson = pm.response.json();\r",
+									"    pm.expect(responseJson.success).to.be.true;\r",
+									"\r",
+									"    if (responseJson.errors != null && responseJson.errors.length != 0) {\r",
+									"        for (var i = 0; i < responseJson.errors.length; i++) {\r",
+									"            console.log(responseJson.errors[0]);\r",
+									"        }\r",
+									"        pm.expect.fail(\"Error(s)\");\r",
+									"    } else {\r",
+									"        // update JWT because now we impersonate the new Patient\r",
+									"        pm.collectionVariables.set('jwt', 'Bearer ' + responseJson.returned.authToken);\r",
+									"    }\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{jwt}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"displayName\": \"{{patient2Nickname}}\",\r\n    \"postalCode\": \"h2z 1b8\",\r\n    \"accountType\": 1,\r\n    \"noEmailAddress\": true\r\n}\r\n"
+						},
+						"url": {
+							"raw": "{{url}}/account/createPatient",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"account",
+								"createPatient"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "04_check_we_are_patient2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Check Patient\\'s personality', function() {\r",
+									"    pm.response.to.have.status(200);\r",
+									"    const responseJson = pm.response.json();\r",
+									"    pm.expect(responseJson.success).to.be.true;\r",
+									"\r",
+									"    if (responseJson.errors != null && responseJson.errors.length != 0) {\r",
+									"        for (var i = 0; i < responseJson.errors.length; i++) {\r",
+									"            console.log(responseJson.errors[0]);\r",
+									"        }\r",
+									"        pm.expect.fail(\"Error(s)\");\r",
+									"    } else {\r",
+									"        // Check we are the new Patient\r",
+									"        pm.expect(responseJson.returned.profile.email).to.include('.no-email@carehub.ca');\r",
+									"        pm.expect(responseJson.returned.profile.screenName).to.eql(pm.variables.get('patient2Nickname'));\r",
+									"        pm.expect(responseJson.returned.profile.postalCode).to.eql('h2z 1b8');\r",
+									"        pm.expect(responseJson.returned.profile.accountType).to.eql(2); // we set 1 (Caregiver) in the prev. parameters, but still should get 2 (Patient)\r",
+									"    }\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{jwt}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/account/profile",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"account",
+								"profile"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "user_A",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "user_A_pwd",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "user_A_email",
+			"value": ""
+		},
+		{
+			"key": "user_A_email_encoded",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "user_B",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "user_B_pwd",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "user_B_email",
+			"value": ""
+		},
+		{
+			"key": "user_C",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "user_C_pwd",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "user_C_email",
+			"value": ""
+		},
+		{
+			"key": "url",
+			"value": "http://localhost:54823",
+			"type": "string"
+		},
+		{
+			"key": "jwt",
+			"value": ""
+		},
+		{
+			"key": "caregiverEmail",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "caregiverNickname",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "caregiverPassword",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "patient1Email",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "patient1Nickname",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "patient1Password",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "patient2Nickname",
+			"value": "",
+			"type": "string"
+		}
+	]
+}

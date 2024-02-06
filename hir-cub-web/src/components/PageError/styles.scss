@@ -1,0 +1,67 @@
+.error-page-content {
+  .container {
+    height: 50vh;
+
+    .error-page-head {
+      margin-top: 23vh;
+      font-size: 6rem;
+      margin-bottom: 20px;
+    }
+
+    .error-page-desc {
+      height: 1.5rem;
+    }
+  }
+}
+
+@media screen and (max-width: 1440px) {
+  .error-page-content .container .error-page-head {
+    margin-top: 20vh;
+    font-size: 6rem;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .error-page-content .container .error-page-head {
+    margin-top: 15vh;
+    font-size: 5rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .error-page .container {
+    .error-page-head {
+      margin-top: 20vh;
+      font-size: 4rem;
+    }
+    .error-page-desc {
+      height: 1.2rem;
+    }
+  }
+}
+
+@media screen and (max-width: 590px) {
+  .error-page .container {
+    .error-page-head {
+      margin-top: 20vh;
+      font-size: 3rem;
+    }
+    .error-page-desc {
+      height: 1.2rem;
+    }
+  }
+}
+
+@media screen and (max-width: 465px) {
+  .error-page .container {
+    height: 35vh;
+
+    .error-page-head {
+      margin-top: 20vh;
+      font-size: 2rem;
+    }
+    .error-page-desc {
+      height: 1rem;
+    }
+  }
+}

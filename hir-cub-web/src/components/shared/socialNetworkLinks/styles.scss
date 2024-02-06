@@ -1,0 +1,39 @@
+.side-social-network-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    right: 0;
+    top: 40%;
+}
+
+.side-social-network-links li {
+    display: flex;
+    width: 45px;
+    height: 45px;
+}
+.side-social-network-links li.facebook{
+    background: #2d4388;
+}
+.side-social-network-links li.twitter{
+    background: #138bf2;
+}
+.side-social-network-links li.pinterest{
+    background: #c00019;
+}
+.side-social-network-links li.blogger{
+    background: #f36800;
+}
+.side-social-network-links li.reddit{
+    background: #ff3e00;
+}
+.side-social-network-links li.envelope{
+    background: #717171;
+}
+.side-social-network-links li a{
+    color:#fff;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    line-height: 45px;
+}

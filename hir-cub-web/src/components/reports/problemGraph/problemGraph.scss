@@ -1,0 +1,50 @@
+.graph-container {
+  display: flex;
+  justify-content: space-between;
+  @media (max-width: 767px) {
+    flex-wrap: wrap;
+  }
+}
+
+.problem-graph {
+  display: flex;
+  justify-content: center;
+  flex-grow: 1;
+  text-align: center;
+  &_header {
+    display: flex;
+  }
+  &_header-dummy {
+    flex-grow: 1;
+  }
+  &_header-title {
+    flex-grow: 1;
+    text-align: center;
+  }
+  &_header-switcher {
+    flex: 1;
+    text-align: right;
+    font-weight: 400;
+    cursor: pointer;
+  }
+  &_footer {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+    height: 33px;
+  }
+}
+
+.body-pain {
+  &_swtcher {
+    height: 26px;
+    cursor: pointer;
+    outline: none;
+    i {
+      font-size: 26px;
+      padding: 0 10px;
+      display: inline-block;
+      vertical-align: middle;
+    }
+  }
+}

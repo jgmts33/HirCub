@@ -1,0 +1,23 @@
+
+.symptom-title {
+  .symptom-text {
+    cursor: pointer;
+    font-size: 14px;
+    color: #AA1183;
+    vertical-align: top;
+
+    .fast-fact {
+      width: 40px;
+    }
+
+    svg {
+      margin-top: -5px;
+    }
+
+    font {
+      font-size: 12px;
+      color: #AA1183;
+      vertical-align: top;
+    }
+  }
+}

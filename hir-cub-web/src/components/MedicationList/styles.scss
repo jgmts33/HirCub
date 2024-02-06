@@ -1,0 +1,722 @@
+@import '../ui/var.scss';
+
+.medication-list {
+  padding: 0 !important;
+}
+
+.medication-title-wrapper {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.pr-10 {
+  padding-right: 10px;
+}
+
+.w-90 {
+  width: 90%;
+}
+
+.w-80 {
+  width: 80%;
+}
+
+.font-20 {
+  font-size: 20px;
+}
+
+.font-15 {
+  font-size: 15px;
+}
+
+.mt-space {
+  padding-top: 6px;
+}
+
+.medication-title {
+  font-size: 40px;
+}
+
+.medication-table-header {
+  display: flex;
+  font-weight: bold;
+
+  i {
+    margin-top: 2px;
+  }
+}
+
+.medication-table-content {
+  background-color: white;
+  padding: 10px 20px;
+  border-radius: 4px;
+  margin-top: 10px;
+  @media screen and (max-width: 980px) {
+    max-width: 685px;
+    overflow-y: auto;
+  }
+}
+
+.medication-item-value {
+  @media screen and (max-width: 980px) {
+    font-size: 14px;
+  }
+}
+
+.medication-table-row {
+  margin: 15px 0;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #888888;
+}
+
+.medication-table-row.mt-space {
+  border-bottom: none;
+}
+
+.medication-row-sep,
+.medication-row-notes,
+.medication-add-row {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.medication-list {
+  .input-filed .form-control {
+    padding: 0.5rem 0.5rem;
+    height: 40px;
+  }
+  .DayPickerInput input {
+    padding: 0.5rem 0.5rem;
+    border-radius: 4px;
+    height: 40px;
+    font-size: 14px;
+    width: 100%;
+    border: 2px solid $text-dark-blue;
+    outline: none;
+  }
+  .medication-active--select {
+    height: 40px;
+
+    .select__control {
+      height: 40px !important;
+      font-size: 14px;
+    }
+  }
+  &__no-result {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 8rem;
+    font-size: 20px;
+    font-weight: 500;
+  }
+  &__load-more {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+    font-weight: 700;
+
+    a {
+      font-size: 16px;
+      text-decoration: none;
+      color: #2a7c91;
+    }
+
+    .fa {
+      margin-left: 0.5rem;
+    }
+  }
+}
+
+.medication-edit-style {
+  width: 30px;
+  text-align: center;
+}
+
+.medication-delete-style {
+  width: 32px;
+  text-align: center;
+  & i {
+    color: $text-dark-blue;
+  }
+}
+
+.medication-check-btn {
+  margin-left: 10px;
+  margin-top: 25px;
+  margin-right: 5px;
+}
+
+.medication-plus-btn {
+  margin-top: 25px;
+  margin-right: 10px;
+  color: $text-dark-blue;
+}
+
+.medication-span {
+  display: none;
+}
+
+.medication-item {
+  &-container {
+    display: flex;
+  }
+  &-title {
+    display: none;
+  }
+  &-date {
+    width: 15%;
+    min-width: 100px;
+    .medication-item-value {
+      word-break: unset;
+      white-space: nowrap;
+      @media screen and (max-width: 980px) {
+        font-size: 14px;
+      }
+    }
+  }
+  &-medication {
+    width: 25%;
+  }
+  &-purpose {
+    width: 20%;
+  }
+  &-dose {
+    width: 15%;
+  }
+  &-schedule {
+    width: 15%;
+    & .medication-item-value {
+      word-break: break-all;
+    }
+  }
+  &-active {
+    max-width: 100px;
+    min-width: 100px;
+    text-align: center;
+
+    .medication-item-value {
+      max-width: 100px;
+      min-width: 100px;
+      text-align: center;
+    }
+  }
+  &-editor {
+    min-width: 70px;
+  }
+}
+
+.medication-table-header {
+  .medication-item {
+    &-active {
+      padding-left: 20px;
+    }
+  }
+}
+
+.show-block {
+  display: block;
+}
+.show-flex {
+  display: flex;
+}
+
+.show-block-mobile,
+.show-flex-mobile {
+  display: none;
+}
+
+@media screen and (max-width: 1024px) {
+  .medication-item {
+    &-editor {
+      min-width: 50px;
+    }
+  }
+  .medication-table-header {
+    .medication-item {
+      &-active {
+        padding-left: 14px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 930px) {
+  .medication-list {
+    .medication-table-row {
+      .pr-10 {
+        padding-right: 5px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 920px) and (min-width: 750px) {
+  .medication-list {
+    .medication-table-header {
+      margin-left: 20px;
+    }
+    .medication-title-wrapper {
+      .medication-button-group {
+        text-align: right;
+        .btn {
+          font-size: 16px;
+          padding: 5px 12px;
+        }
+      }
+    }
+    .medication-add-row {
+      display: block;
+
+      .medication-active--select {
+        font-size: 14px;
+      }
+
+      .medication-add-item {
+        display: flex;
+        width: 100%;
+        margin-bottom: 4px;
+
+        .medication-span {
+          font-size: 16px;
+          margin-left: 20px;
+          text-align: left;
+          display: block;
+          min-width: 120px;
+          line-height: 36px;
+        }
+
+        .input-filed input {
+          height: 36px;
+        }
+
+        .medication-active--select .select__control {
+          height: 36px !important;
+          width: 100px;
+        }
+      }
+    }
+
+    .medication-edit-style,
+    .medication-delete-style {
+      width: 24px;
+    }
+
+    .medication-table-row {
+      font-size: 16px;
+      margin: 18px 0;
+
+      .medication-edit-style i,
+      .medication-delete-style i {
+        font-size: 20px;
+      }
+    }
+
+    .medication-row-sep {
+      display: block;
+      .medication-add-item {
+        margin-left: 20px;
+      }
+      .w-90 {
+        width: 75%;
+      }
+    }
+
+    .medication-row-notes {
+      .medication-add-item {
+        margin-left: 20px;
+      }
+    }
+    .medication-item {
+      &-container {
+        display: flex;
+        justify-content: space-between;
+        line-height: 1.35rem;
+
+        .medication-item {
+          &-title {
+            display: block;
+            min-width: 120px;
+            font-size: 16px;
+            margin-left: 20px;
+          }
+        }
+      }
+      &-date,
+      &-medication,
+      &-purpose,
+      &-dose,
+      &-schedule,
+      &-active {
+        width: 100%;
+        text-align: left;
+        font-size: 16px;
+        margin-right: 4px;
+
+        .medication-item-value {
+          width: 90%;
+          text-align: left;
+          max-width: 90%;
+          font-size: 16px;
+          margin-right: 20px;
+        }
+
+        > i {
+          width: 20px;
+        }
+      }
+    }
+  }
+
+  .medication-edit-style {
+    margin-right: 15px;
+  }
+
+  .w-90 {
+    width: 80%;
+  }
+  .show-block,
+  .show-flex {
+    display: none !important;
+  }
+
+  .show-block-mobile {
+    display: block;
+  }
+  .show-flex-mobile {
+    display: flex;
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .medication-list {
+    .medication-title-wrapper {
+      .medication-title {
+        font-size: 30px;
+        min-width: 200px;
+      }
+
+      div .btn {
+        font-size: 16px;
+        padding: 5px 12px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .medication-list {
+    .medication-title-wrapper {
+      div .btn {
+        font-size: 16px;
+        padding: 5px 18px;
+      }
+    }
+    .medication-table-row {
+      .pr-10 {
+        padding-right: 5px;
+      }
+    }
+    .medication-add-row {
+      .medication-active--select {
+        font-size: 17px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .medication-list {
+    .medication-table-header {
+      margin-left: 20px;
+    }
+    .medication-title-wrapper {
+      .medication-button-group {
+        text-align: right;
+        .btn {
+          font-size: 16px;
+          padding: 5px 12px;
+        }
+      }
+    }
+    .medication-add-row {
+      display: block;
+
+      .medication-active--select {
+        font-size: 14px;
+      }
+
+      .medication-add-item {
+        display: flex;
+        width: 100%;
+        margin-bottom: 4px;
+
+        .medication-span {
+          font-size: 16px;
+          margin-left: 20px;
+          text-align: left;
+          display: block;
+          min-width: 120px;
+          line-height: 36px;
+        }
+
+        .input-filed input {
+          height: 36px;
+        }
+
+        .medication-active--select .select__control {
+          height: 36px !important;
+          width: 100px;
+        }
+      }
+    }
+
+    .medication-edit-style,
+    .medication-delete-style {
+      width: 24px;
+    }
+
+    .medication-table-row {
+      font-size: 16px;
+      margin: 18px 0;
+
+      .medication-edit-style i,
+      .medication-delete-style i {
+        font-size: 20px;
+      }
+    }
+
+    .medication-row-sep {
+      display: block;
+      .medication-add-item {
+        margin-left: 20px;
+      }
+      .w-90 {
+        width: 90%;
+      }
+    }
+
+    .medication-row-notes {
+      .medication-add-item {
+        margin-left: 20px;
+      }
+    }
+    .medication-item {
+      &-container {
+        display: flex;
+        justify-content: space-between;
+        line-height: 1.35rem;
+
+        .medication-item {
+          &-title {
+            display: block;
+            min-width: 120px;
+            font-size: 16px;
+            margin-left: 20px;
+          }
+        }
+      }
+      &-date,
+      &-medication,
+      &-purpose,
+      &-dose,
+      &-schedule,
+      &-active {
+        width: 100%;
+        text-align: left;
+        font-size: 16px;
+        margin-right: 10px;
+
+        .medication-item-value {
+          width: 90%;
+          text-align: left;
+          max-width: 90%;
+          font-size: 16px;
+          margin-right: 20px;
+        }
+      }
+    }
+  }
+
+  .medication-edit-style {
+    margin-right: 15px;
+  }
+
+  .w-90 {
+    width: 80%;
+  }
+  .show-block,
+  .show-flex {
+    display: none !important;
+  }
+
+  .show-block-mobile {
+    display: block;
+  }
+  .show-flex-mobile {
+    display: flex;
+  }
+}
+
+@media screen and (max-width: 465px) {
+  .medication-list {
+    padding-left: 0;
+
+    .medication-title-wrapper {
+      display: block;
+      .medication-title {
+        padding-left: 10px;
+        font-size: 24px;
+      }
+    }
+
+    .medication-table-header {
+      font-weight: 600;
+      font-size: 14px;
+    }
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .medication-list {
+    .medication-title {
+      font-size: 24px;
+    }
+
+    .medication-table-header {
+      margin-left: 10px;
+      font-size: 13px;
+    }
+
+    .medication-row-notes {
+      .medication-add-item {
+        margin-left: 20px;
+      }
+
+      .medication-plus-btn {
+        margin-left: 10px;
+      }
+    }
+    .medication-item {
+      &-container {
+        .medication-item {
+          &-title {
+            min-width: 100px;
+            margin-left: 20px;
+          }
+        }
+      }
+    }
+    .medication-add-row {
+      .medication-add-item {
+        .medication-span {
+          font-size: 16px;
+          min-width: 100px;
+        }
+      }
+    }
+  }
+
+  .medication-edit-style {
+    margin-right: 15px;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .medication-list {
+    .medication-edit-style,
+    .medication-delete-style {
+      width: auto;
+    }
+  }
+}
+
+@media screen and (max-width: 300px) {
+  .medication-list {
+    .medication-table-header {
+      font-weight: 600;
+      font-size: 12px;
+    }
+
+    .medication-table-row {
+      font-size: 12px;
+    }
+  }
+}
+
+@media print {
+  .header,
+  .footer {
+    display: none;
+  }
+
+  .aside {
+    display: none;
+  }
+
+  .Toastify {
+    display: none;
+  }
+
+  .medication-table-row.mt-space {
+    display: none;
+  }
+
+  .medication-row-sep.mt-space .flex {
+    display: none;
+  }
+
+  .medication-title-wrapper .medication-button-group {
+    display: none;
+  }
+  .medication-table-header i,
+  .medication-table-header .fa-arrow-down {
+    display: none;
+  }
+  .medication-item-date .medication-item-value {
+    word-break: unset;
+    white-space: nowrap;
+  }
+  .medication-table-content {
+    padding: 10px 0px;
+  }
+
+  .medication-item {
+    &-date {
+      width: 100px;
+      max-width: 100px;
+    }
+    &-dose {
+      width: 150px;
+      word-break: break-word;
+    }
+    &-schedule {
+      width: 150px;
+      word-break: break-word;
+    }
+    &-active {
+      width: 60px;
+      max-width: 60px;
+    }
+    &-editor {
+      display: none;
+    }
+  }
+
+  .dashbord-page-content {
+    .hero-title {
+      display: none;
+    }
+
+    .content-block {
+      .tabs-combo,
+      .tabs-block {
+        display: none;
+      }
+    }
+  }
+}

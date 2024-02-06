@@ -1,0 +1,30 @@
+.fields-list .input-filed {
+  width: calc(100% - 35px);
+}
+.fields-list .form-group {
+  margin-bottom: 1rem;
+}
+.input-filed .form-control {
+  width: 100%;
+  height: 44px;
+  padding: 0.5rem 0.5rem;
+  border: 2px solid #00698c;
+  border-radius: 6px;
+  outline: none;
+}
+.input-filed .field-error {
+  border: 2px solid #993399;
+}
+
+.form-control::-moz-placeholder {
+  color: #adadad;
+  opacity: 1;
+}
+
+.form-control:-ms-input-placeholder {
+  color: #adadad;
+}
+
+.form-control::-webkit-input-placeholder {
+  color: #adadad;
+}

@@ -1,0 +1,336 @@
+.patient-entries {
+  padding: 20px 0;
+  padding-top: 10px;
+  margin-left: 40px;
+  margin-right: 40px;
+
+  &-title {
+    font-size: 24px !important;
+    font-weight: 600;
+    color: #222;
+  }
+
+  > hr {
+    background-color: #4fb8c9;
+    color: #7dd4dc;
+    border: 0px;
+    height: 2px;
+    margin-bottom: 10px;
+  }
+
+  &-list {
+    margin: 20px 40px;
+
+    &__no-result {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+
+      min-height: 10rem;
+    }
+
+    min-height: 10rem;
+  }
+
+  &-header {
+    font-weight: 600;
+    justify-content: space-between;
+    align-items: center;
+
+    &-email,
+    &-name {
+      width: 35%;
+      min-width: 180px;
+      padding-right: 10px;
+    }
+    &-editor {
+      width: 30%;
+      min-width: 180px;
+    }
+  }
+
+  &-item {
+    &-container {
+      display: flex;
+    }
+    &-title {
+      display: none;
+    }
+    &-email,
+    &-name {
+      width: 35%;
+      min-width: 180px;
+    }
+
+    &-editor {
+      width: 30%;
+      min-width: 180px;
+    }
+  }
+
+  &-row-sep {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 8px;
+    margin-bottom: 8px;
+  }
+
+  &__title {
+    margin-bottom: 5px;
+    font-size: 20px;
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+    text-transform: capitalize;
+  }
+
+  &__description {
+    margin: 0.2rem 0 0;
+    font-size: 15px;
+
+    * {
+      margin: 0;
+    }
+  }
+
+  &-button {
+    color: #fff;
+    display: inline-block;
+    padding: 6px 12px;
+    border: 0;
+    border-radius: 5px;
+    background-color: #993399;    
+    font-size: 14px;
+    cursor: pointer;
+  }
+
+  .show-block {
+    display: block;
+  }
+  .show-flex {
+    display: flex;
+  }
+
+  .show-block-mobile,
+  .show-flex-mobile {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 1440px) {
+  .patient-entries {
+    hr {
+      margin-top: 15px;
+      margin-bottom: 15px;
+    }
+  }
+}
+
+@media screen and (max-width: 880px) {
+  .patient-entries {
+    padding: 16px 0;
+    padding-top: 10px;
+
+    &-list {
+      margin: 16px 20px;
+    }
+  }
+}
+
+@media screen and (max-width: 980px) {
+  .patient-entries {
+    &-list {
+      margin: 16px 10px;
+    }
+
+    &-header {
+      &-email,
+      &-name {
+        width: 30%;
+        min-width: 140px;
+      }
+      &-editor {
+        width: 40%;
+        min-width: 160px;
+      }
+    }
+
+    &-item {
+      &-email,
+      &-name {
+        width: 30%;
+        min-width: 140px;
+      }
+
+      &-editor {
+        width: 40%;
+        min-width: 160px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 920px) and (min-width: 750px) {
+  .patient-entries {
+    &-list {
+      margin: 16px 10px;
+    }
+
+    &-row-sep {
+      display: block;
+    }
+
+    &-item {
+      &-container {
+        display: flex;
+        justify-content: space-between;
+        line-height: 1.5rem;
+      }
+      &-title {
+        display: block;
+        min-width: 90px;
+        font-size: 16px;
+        margin-left: 20px;
+      }
+      &-email,
+      &-name,
+      &-editor {
+        width: 100%;
+        text-align: left;
+        font-size: 16px;
+        margin-right: 4px;
+      }
+
+      &-value {
+        width: 90%;
+        text-align: left;
+        max-width: 90%;
+        font-size: 16px;
+        margin-right: 20px;
+      }
+    }
+
+    .show-block,
+    .show-flex {
+      display: none !important;
+    }
+
+    .show-block-mobile {
+      display: block;
+    }
+    .show-flex-mobile {
+      display: flex;
+    }
+  }
+}
+
+@media screen and (max-width: 670px) {
+  .patient-entries {
+    &-list {
+      margin: 16px 10px;
+    }
+
+    &-row-sep {
+      display: block;
+    }
+
+    &-item {
+      &-container {
+        display: flex;
+        justify-content: space-between;
+        line-height: 1.5rem;
+      }
+      &-title {
+        display: block;
+        min-width: 90px;
+        font-size: 16px;
+        margin-left: 20px;
+      }
+      &-email,
+      &-name,
+      &-editor {
+        width: 100%;
+        text-align: left;
+        font-size: 16px;
+        margin-right: 4px;
+      }
+
+      &-value {
+        width: 90%;
+        text-align: left;
+        max-width: 90%;
+        font-size: 16px;
+        margin-right: 20px;
+      }
+    }
+
+    .show-block,
+    .show-flex {
+      display: none !important;
+    }
+
+    .show-block-mobile {
+      display: block;
+    }
+    .show-flex-mobile {
+      display: flex;
+    }
+  }
+}
+
+@media screen and (max-width: 465px) {
+  .patient-entries {
+    padding: 0;
+    padding-bottom: 12px;
+    margin-left: 12px;
+    margin-right: 12px;
+
+    &-title {
+      margin-left: 10px;
+      font-size: 24px;
+    }
+
+    &-list {
+      margin: 12px;
+    }
+  }
+}
+
+@media screen and (max-width: 410px) {
+  .patient-entries {
+    &-item {
+      &-title {
+        display: block;
+        min-width: 90px;
+        font-size: 16px;
+        margin-left: 10px;
+      }
+      &-editor &-title {
+        min-width: 10px;
+      }
+
+      &-value {
+        width: 100%;
+        text-align: left;
+        max-width: 100%;
+        font-size: 16px;
+        margin-right: 10px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .patient-entries {
+    &-item {
+      &-title {
+        display: block;
+        min-width: 80px;
+        margin-left: 10px;
+      }
+    }
+  }
+}

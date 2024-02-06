@@ -1,0 +1,124 @@
+@import '../var.scss';
+
+.category {
+  position: relative;
+  width: 100%;
+
+  .category-icon {
+    position: absolute;
+    right: 1.25rem;
+    top: 0.75rem;
+    padding: 0;
+    height: 3em;
+    width: 10em;
+    background: none;
+    pointer-events: none;
+    color: $text-dark-blue;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    text-align: right;
+
+    >i {
+      margin-left: 8px;
+      color: $text-dark-blue;
+    }
+  }
+
+  .category-wrap {
+    height: 0;
+    visibility: hidden;
+    overflow: hidden;
+    transition: all 0.2s ease-in;
+  }
+
+  .category-head-title {
+    margin-left: 10px;
+    margin-right: 10px;
+    overflow: hidden;
+    cursor: pointer;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #007595;
+    text-overflow: ellipsis;
+    padding: 0.5em 0;
+
+    div {
+      padding-right: 36px;
+    }
+  }
+
+  .sub-category {
+    margin-left: 10px;
+    margin-right: 10px;
+    text-overflow: ellipsis;
+    font-weight: bold;
+    font-size: .84rem;
+  }
+
+  .category-notification {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  &.active-category {
+    .category-wrap {
+      visibility: visible;
+      height: 100%;
+    }
+  }
+
+  .category-content {
+    margin-left: 16px;
+  }
+}
+
+@media print {
+  .category {
+    .category-wrap {
+      height: 100%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  .category-icon {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .category {
+    .category-head-title {
+      padding-right: 36px;
+      white-space: pre-line;
+      text-overflow: ellipsis;
+    }
+    .sub-category {
+      padding-right: 36px;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .category {
+    .category-head-title {
+      margin-left: 4px;
+      margin-right: 30px;
+    }
+    .sub-category {
+      margin-left: 4px;
+      margin-right: 30px;
+    }
+    .category-notification {
+      margin-left: 4px;
+    }
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .category {
+    .category-wrap {
+      margin-left: 10px;
+    }
+  }
+}

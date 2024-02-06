@@ -1,0 +1,18 @@
+<svg version="1.2" baseProfile="tiny-ps" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 24" width="16" height="24">
+	<title>TABS</title>
+	<defs>
+		<image  width="16" height="24" id="img1" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAYCAMAAADEfo0+AAAAAXNSR0IB2cksfwAAAUdQTFRFAAAA////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////Oml7WgAAAG10Uk5TACvY+akjAs3/xPpqYvBGQ+nzDuj4vuaJgCWtbiTiCjD+1gSwWcFHRMUBVbPTNAnfJp57jBHt8hgb9eoPkXejZSn83Ac4z7lQyT5Lu16qBtosDPcgcpWGgwXxIeULb65cse7IMj+Z9D3eLi0SEN06RooAAADYSURBVHicTdBFQwIBFEXhqwgeBwtFFHPEHMUWsRFbsbsLW/7/2tWb4e6+s3tP8ldRGaoKB1SkmhqcaBBqqatvaIz5bmqOO7TEEn5opS3ZDh3mzlBXt3rc3pSFPvqlAQbNQwx7GmHUnEq7YxqfcCYtRJmSppkxz2bmsppfWFyysMyKtErOvJZf39AmWxEL2+zI22XPvE9BOuDQfHScP9Fp4uzcwgWX0hXX5ptbN6y7+P2DhSxkHp949s9O8vIKb54firx/8FkMPvdFmu+fwPqFwp/KVyp55fwHTccbWJTDrwQAAAAASUVORK5CYII="/>
+	</defs>
+	<style>
+		tspan { white-space:pre }
+	</style>
+	<g id="TABS">
+		<g id="NOTES CONTENT">
+			<g id="1 NOTES LANDING">
+				<g id="BUTTON discussion fourm copy">
+					<use id="Vector Smart Object" href="#img1" x="0" y="0" />
+				</g>
+			</g>
+		</g>
+	</g>
+</svg>

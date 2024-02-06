@@ -1,0 +1,33 @@
+.program-and-services-list.items-list li {
+  margin-bottom: 0.65rem;
+}
+.program {
+  padding: 2px 10px;
+}
+.program-and-services-list li.active a {
+  background: #ffcd9b;
+}
+.library-page .items-list li .btn-group {
+  min-width: 65px;
+  width: 65px;
+}
+.library-items-list .btn-group,
+.programs-and-services-list .items-list li .btn-group {
+  visibility: hidden;
+  margin-left: auto;
+}
+@media (hover: none) {
+  .library-items-list .btn-group,
+  .programs-and-services-list .items-list li .btn-group {
+    visibility: visible;
+    margin-left: auto;
+  }
+}
+.library-items-list .items-list li:hover .btn-group,
+.programs-and-services-list .items-list li:hover .btn-group {
+  visibility: visible;
+}
+.program-active {
+  color: #5ab436;
+  font-weight: 700;
+}

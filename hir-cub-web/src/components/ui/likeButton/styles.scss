@@ -1,0 +1,12 @@
+.like-btn {
+  width: 25px;
+  height: 23px;
+  background: transparent;
+  border: none;
+  outline: none;
+  overflow: hidden;
+
+  > i {
+    color: #2c6789;
+  }
+}

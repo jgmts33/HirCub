@@ -1,0 +1,41 @@
+.reports {
+  &_container {
+    margin-bottom: 30px;
+    padding: 40px 0;
+    background: #e6e6e6;
+    border-radius: 0.4rem;
+  }
+  &_range-container {
+    display: flex;
+    justify-content: space-around;
+  }
+  &_range-input {
+    display: flex;
+    min-width: 300px;
+    text-align: center;
+    align-items: center;
+  }
+  &_range-label {
+    margin-right: 15px;
+  }
+  &_error {
+    margin-top: 8px;
+    text-align: center;
+    color: #9d1d87;
+  }
+  @media screen and (max-width: 767px) {
+    &_range-container {
+      flex-wrap: wrap;
+      padding: 20px;
+    }
+    &_range-input {
+      margin-top: 10px;
+      min-width: initial;
+      width: 100%;
+      text-align: left;
+    }
+    &_range-label {
+      width: 25%;
+    }
+  }
+}

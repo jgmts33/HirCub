@@ -1,0 +1,60 @@
+.problems-group {
+  .section-collapse {
+    .section-head {
+      margin-left: 10px;
+      margin-right: 10px;
+    }
+
+    .article-wrap {
+      margin-left: 0;
+      margin-right: 0;
+      .reports-block-graph__title {
+        margin-top: 0.5rem;
+      }
+    }
+  }
+
+  .date-selector {
+    .date-container {
+      display: flex;
+      justify-content: space-evenly;
+    }
+    .date-section, .time-section {
+      display: flex;
+      div {
+        min-width: 80px;
+        line-height: 34px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 850px) and (min-width: 751px) {
+  .problems-group {
+    .date-selector {
+      .date-container {
+        display: block;
+      }
+      .date-section, .time-section {
+        .input-datapicker-group {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .problems-group {
+    .date-selector {
+      .date-container {
+        display: block;
+      }
+      .date-section, .time-section {
+        .input-datapicker-group {
+          width: 100%;
+        }
+      }
+    }
+  }
+}

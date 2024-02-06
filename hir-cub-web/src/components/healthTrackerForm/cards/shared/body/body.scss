@@ -1,0 +1,21 @@
+@mixin cirle {
+  border: none;
+  background: #25739f;
+}
+
+.body {
+  position: relative;
+  &_area {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border: 1px dashed #aeaeae;
+    border-radius: 50%;
+    &.-selected {
+      @include cirle;
+    }
+    &:hover {
+      @include cirle;
+    }
+  }
+}

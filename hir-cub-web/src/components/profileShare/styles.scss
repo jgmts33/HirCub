@@ -1,0 +1,233 @@
+.profile-share {
+  margin: 0 40px;
+
+  &_title {
+    font-size: 31px;
+    font-weight: 600;
+    margin-top: 0;
+    margin-bottom: 16px;
+    -moz-user-select: none;
+    user-select: none;
+  }
+  &_subtitle {
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
+  &_group {
+    border-radius: 6px;
+    background-color: white;
+  }
+
+  &_user-name {
+    margin-top: 10px;
+    font-size: 2rem;
+  }
+  &_info {
+    padding: 10px 40px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  &_info-col {
+    width: 48%;
+    min-width: 300px;
+
+    @media screen and (max-width: 800px) {
+      width: 100%;
+      min-width: initial;
+    }
+  }
+  &_info-element {
+    display: flex;
+    margin-top: 28px;
+  }
+  &_info-title {
+    width: 36%;
+    line-height: 36px;
+  }
+  &_info-value {
+    width: 65%;
+    color: #333;
+    user-select: none;
+    -moz-user-select: none;
+
+    > span {
+      padding-top: 7px;
+      height: 36px;
+      display: inline-block;
+    }
+
+    .input-filed .form-control {
+      background-color: white;
+      color: #333;
+      width: 80%;
+      height: 36px;
+      padding: 0.5rem 0.5rem;
+      border: 2px solid #00698c;
+      border-radius: 6px;
+      font-size: 14px;
+
+      &:focus {
+        outline: none;
+        border: 2px solid #00698c !important;
+        background-color: #f0f0f0;
+      }
+    }
+
+    .user-status-select {
+      font-size: 0.9rem;
+      width: 60%;
+
+      .select__control {
+        //border-radius: 20px;
+        font-size: 14px;
+        border: 2px solid #00698c;
+
+        svg {
+          fill: #000;
+        }
+      }
+
+      .select__value-container {
+        padding-top: 0;
+        padding-bottom: 0;
+        font-size: 14px;
+      }
+    }
+  }
+
+  &_share-list {
+    padding: 0px 20px 20px;
+  }
+
+  &_description {
+    font-size: 0.9rem;
+    margin-top: 10px;
+    padding: 10px 40px;
+  }
+
+  &_btn-save {
+    text-align: right;
+    padding-top: 16px;
+    margin-right: 2px;
+    padding-bottom: 20px;
+
+    > button {
+      border-width: 0;
+      height: 32px;
+      text-transform: uppercase;
+    }
+    i {
+      margin-right: 10px;
+    }
+  }
+}
+
+@media screen and (max-width: 1360px) {
+  .profile-share {
+    &_value .profile-select {
+      width: 7.6rem;
+    }
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  .profile-share {
+    &_info {
+      display: block;
+
+      &-value {
+        .input-filed .form-control,
+        .user-status-select {
+          width: 100%;
+        }
+      }
+    }
+
+    &_value {
+      margin-top: 8px;
+      > span {
+        min-width: 160px;
+        line-height: 1.5rem;
+      }
+      .profile-select {
+        width: 80%;
+        min-width: 10rem;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .profile-share {
+    &_info-element {
+      margin-top: 14px;
+    }
+  }
+}
+
+@media screen and (max-width: 960px) {
+  .profile-share {
+    &_value {
+      .profile-select {
+        min-width: 12rem;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .profile-share {
+    margin-left: 30px;
+    margin-right: 30px;
+    &_title {
+      font-size: 24px;
+    }
+  }
+}
+
+@media screen and (max-width: 465px) {
+  .profile-share {
+    margin-left: 20px;
+    margin-right: 20px;
+
+    &_info,
+    &_description {
+      padding: 10px 20px;
+    }
+  }
+}
+
+@media screen and (max-width: 365px) {
+  .profile-share {
+    &_info {
+      display: flex;
+
+      &-element {
+        display: block;
+        margin-top: 4px;
+      }
+
+      &-title,
+      &-value {
+        width: 100%;
+      }
+    }
+    &_col {
+      display: block;
+    }
+
+    &_element {
+      margin-left: 0;
+      float: none;
+    }
+    &_value {
+      display: block;
+
+      .profile-select {
+        width: 100%;
+        min-width: 4rem;
+      }
+    }
+  }
+}

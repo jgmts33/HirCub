@@ -1,0 +1,110 @@
+.health-tracker {
+  &_cards-group {
+    display: flex;
+  }
+  &_expanded-card-container {
+    flex-grow: 2;
+  }
+  &_cards-container {
+    flex-grow: 1;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-self: flex-start;
+    &.-narrow {
+      width: 100%;
+      max-width: 33.333%;
+      & .health-tracker_card {
+        width: 100%;
+      }
+    }
+  }
+  &_card {
+    width: 33.33%;
+    &.-open {
+      width: 100%;
+    }
+  }
+  &_separator {
+    border-width: 1px;
+    border-color: #238ba7;
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+  &_btn-save {
+    text-align: right;
+    padding-top: 16px;
+    margin-right: 2px;
+    padding-bottom: 20px;
+
+    > button {
+      border-width: 0;
+      height: 32px;
+      text-transform: uppercase;
+    }
+    i {
+      margin-right: 10px;
+    }
+  }
+
+  &-page {
+    .track-other {
+      display: flex;
+      justify-content: center;
+
+      &-detail {
+        display: flex;
+        max-width: 480px;
+        @media screen and (max-width: 425px) {
+          font-size: 15px;
+        }
+      }
+      .information-tooltip {
+        margin-left: 8px;
+        i {
+          font-size: 20px;
+          color: #3b73af;
+        }
+
+        &-content {
+          white-space: break-spaces;
+          width: 300px;
+          @media screen and (max-width: 375px) {
+            width: 240px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.body-pain {
+  &_swtcher {
+    height: 26px;
+    cursor: pointer;
+    outline: none;
+    i {
+      font-size: 26px;
+      padding: 0 10px;
+      display: inline-block;
+      vertical-align: middle;
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .health-tracker {
+    &_cards-group {
+      width: 100%;
+      flex-wrap: wrap;
+    }
+    &_cards-container {
+      &.-narrow {
+        max-width: 100%;
+      }
+    }
+    &_card {
+      width: 100%;
+    }
+  }
+}

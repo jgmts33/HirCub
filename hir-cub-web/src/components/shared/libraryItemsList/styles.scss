@@ -1,0 +1,46 @@
+// .library-items-list .items-list li {
+//   align-items: center;
+// }
+// .library-items-list .items-list li:last-child {
+//   margin-bottom: 0;
+// }
+// .library-items-list .items-list li::before,
+// .legend-informtation-list ul li::before {
+//   content: '';
+//   width: 30px;
+//   min-width: 30px;
+//   height: 30px;
+//   background-size: contain;
+//   background-repeat: no-repeat !important;
+//   display: block;
+//   margin-right: 12px;
+// }
+// .library-items-list .items-list li.item-type-webpage::before,
+// .legend-informtation-list ul li.item-type-webpage::before {
+//   background: url('/img/assets/webpage-icon.png');
+// }
+// .library-items-list .items-list li.item-type-book::before,
+// .legend-informtation-list ul li.item-type-book::before {
+//   background: url('/img/assets/book-icon.png');
+// }
+// .library-items-list .items-list li.item-type-video::before,
+// .legend-informtation-list ul li.item-type-video::before {
+//   background: url('/img/assets/video-icon.png');
+// }
+// .library-items-list .items-list li a {
+//   color: #000000;
+//   text-decoration: none;
+// }
+// .library-items-list .items-list li a:hover {
+//   text-decoration: underline;
+// }
+// .library-items-list .btn-group {
+//   visibility: hidden;
+//   margin-left: auto;
+// }
+// .library-items-list .items-list li:hover .btn-group {
+//   visibility: visible;
+// }
+// .library-items-list .btn-group > button {
+//   margin-left: 8px;
+// }

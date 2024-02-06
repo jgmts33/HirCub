@@ -1,0 +1,19 @@
+
+.DayPickerInput {
+  &-Overlay {
+    .DayPicker {
+      &-wrapper {
+        .DayPicker-Months {
+          .DayPicker-Caption {
+            color: #333;
+          }
+          .DayPicker-Body {
+            .DayPicker-Week {
+              color: #333;
+            }
+          }
+        }
+      }
+    }
+  }
+}

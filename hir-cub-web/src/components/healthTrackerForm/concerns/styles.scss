@@ -1,0 +1,26 @@
+.concern-group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.concern {
+  width: 32%;
+
+  .accordion-group {
+    .accordion-body .form-group {
+      &:last-child {
+        margin-bottom: 10px;
+      }
+    }
+  }
+}
+@media screen and (max-width: 992px) {
+  .concern {
+    width: 49%;
+  }
+}
+@media screen and (max-width: 767px) {
+  .concern {
+    width: 100%;
+  }
+}

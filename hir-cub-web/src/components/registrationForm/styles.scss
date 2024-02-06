@@ -1,0 +1,20 @@
+.sign-up-form {
+  .form-field-icon {
+    width: 28px;
+    font-size: 22px;
+    color: #5ab436;
+
+    &.email-blue-icon,
+    &.password-blue-icon {
+      color: #25739f;
+    }
+  }
+
+  .information-tooltip {
+    margin-right: -24px;
+  }
+
+  @import "../ui/formControls/checkbox/checkbox.scss";
+  @import "../ui/formControls/radio/radio.scss";
+}
+

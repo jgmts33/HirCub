@@ -1,0 +1,543 @@
+.spending-list {
+  padding: 0;
+  padding-left: 20px;
+
+  .show-flex {
+    display: flex;
+  }
+}
+
+.spending-title-wrapper {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 10px;
+
+  & button {
+    font-size: 17px;
+  }
+}
+
+.spending-edit-style {
+  width: 32px;
+  & i {
+    font-size: 15px;
+    color: #00698c;
+  }
+}
+
+.spending-title {
+  font-size: 40px;
+}
+
+.spending-table-header {
+  display: flex;
+  margin-left: 10px;
+  font-weight: bold;
+}
+
+.spending-table-row {
+  display: flex;
+  margin: 15px 0;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  border-bottom: 1px solid #888;
+  &:last-child {
+    border-bottom: none;
+    margin: 15px 0 0;
+  }
+}
+
+.spending-item {
+  &-container {
+    display: flex;
+  }
+  &-title {
+    display: none;
+  }
+  &-category {
+    width: 25%;
+  }
+  &-location {
+    width: 20%;
+  }
+  &-amount {
+    width: 15%;
+  }
+  &-date {
+    width: 15%;
+    min-width: 100px;
+    text-align: right;
+  }
+  &-event {
+    width: 15%;
+  }
+  &-editor {
+    min-width: 70px;
+  }
+}
+
+.spending-table-content {
+  padding-bottom: 20px;
+  background: white;
+  padding: 20px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  border-radius: 4px;
+}
+
+.spending-add-row {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.spending-active--select {
+  height: 44px;
+
+  .select__control {
+    height: 44px !important;
+    font-size: 14px;
+  }
+}
+
+.select__control {
+  font-size: 14px;
+  border: 2px solid #00698c;
+  &:hover {
+    border: 2px solid #00698c;
+  }
+}
+.select__control--is-focused,
+.select__input {
+  outline: none;
+  font-size: 14px;
+  border: 2px solid #00698c;
+}
+
+.spending-entry-form {
+  padding-left: 20px;
+}
+
+.spending-search-row {
+  display: inline-flex;
+  align-items: center;
+  margin-bottom: 10px;
+  margin-right: 10px;
+
+  .DayPickerInput {
+    width: 10rem;
+    input {
+      width: 100%;
+      height: auto;
+      font-size: 14px;
+      padding: 8px 10px;
+    }
+  }
+}
+
+.select__indicators {
+  height: 33px;
+}
+
+.spending-multi-select {
+  width: 10rem;
+
+  .select__value-container {
+    padding-top: 0;
+    padding-bottom: 0;
+    font-size: 14px;
+  }
+
+  .select__input-container {
+    margin: 0;
+    font-size: 14px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+
+    .select__input {
+      color: transparent !important;
+
+      &:focus {
+        outline: none !important;
+      }
+    }
+  }
+}
+
+.spending-span {
+  padding-right: 10px;
+}
+
+.spending-entries-list {
+  margin-top: 40px;
+}
+
+.spending-entry {
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 1024px) {
+  .spending-list {
+    .spending-span {
+      min-width: 90px;
+    }
+
+    .spending-search-row {
+      .spending-multi-select {
+        width: 14rem;
+        margin-right: 10px;
+      }
+
+      .DayPickerInput {
+        width: 9.6rem;
+        margin-right: 10px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 930px) {
+  .spending-list {
+    .spending-span {
+      min-width: 160px;
+    }
+
+    .spending-table-row .pr-10 {
+      padding-right: 5px;
+    }
+
+    .spending-search-row {
+      .spending-multi-select {
+        width: 12rem;
+      }
+
+      .DayPickerInput {
+        width: 12rem;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 860px) and (min-width: 751px) {
+  .spending-list {
+    .spending-table-header {
+      margin-left: 20px;
+
+      .spending-item-editor {
+        min-width: 10px;
+      }
+    }
+
+    .spending-table-row {
+      font-size: 16px;
+      margin: 18px 0;
+      display: block;
+
+      .spending-edit-style i {
+        font-size: 15px;
+      }
+    }
+
+    .spending-item {
+      &-container {
+        display: flex;
+        justify-content: space-between;
+        line-height: 1.35rem;
+
+        .spending-item {
+          &-title {
+            display: block;
+            min-width: 120px;
+            font-size: 16px;
+            margin-left: 20px;
+          }
+        }
+      }
+
+      &-category,
+      &-location,
+      &-amount,
+      &-date,
+      &-event {
+        width: 100%;
+        text-align: left;
+        font-size: 16px;
+        margin-right: 4px;
+
+        .spending-item-value {
+          width: 90%;
+          text-align: left;
+          max-width: 90%;
+          font-size: 16px;
+          margin-right: 20px;
+        }
+      }
+    }
+
+    .spending-table-row {
+      .spending-item-editor {
+        .spending-item-title {
+          display: none;
+        }
+        .spending-item-value {
+          margin-top: 8px;
+          margin-left: 16px;
+
+          .spending-edit-style {
+            width: 15px;
+          }
+        }
+      }
+    }
+
+    .show-flex {
+      display: none !important;
+    }
+  }
+}
+
+@media screen and (max-width: 840px) {
+  .spending-list {
+    padding-left: 10px;
+
+    .spending-title {
+      font-size: 32px;
+    }
+
+    .spending-span {
+      min-width: 160px;
+    }
+
+    .spending-search-row {
+      .spending-multi-select,
+      .DayPickerInput {
+        width: 12rem;
+      }
+    }
+
+    .spending-table-content {
+      .spending-table-row {
+        div {
+          word-break: break-word;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .spending-list {
+    padding-left: 10px;
+    max-width: none;
+
+    .spending-span {
+      min-width: 120px;
+    }
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .spending-list {
+    .spending-span {
+      min-width: 120px;
+    }
+    .spending-search-row {
+      .DayPickerInput {
+        width: 10rem;
+      }
+
+      .spending-multi-select {
+        width: 14rem;
+      }
+
+      .btn {
+        margin-left: 1rem;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 690px) {
+  .spending-list {
+    .spending-span {
+      min-width: 120px;
+    }
+    .spending-search-row {
+      .DayPickerInput {
+        width: 100%;
+        max-width: 16rem;
+      }
+
+      .spending-multi-select {
+        width: 13.5rem;
+      }
+
+      .btn {
+        margin-left: 4px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .spending-list {
+    .spending-table-header {
+      margin-left: 20px;
+
+      .spending-item-editor {
+        min-width: 10px;
+      }
+    }
+
+    .spending-table-row {
+      font-size: 16px;
+      margin: 18px 0;
+      display: block;
+
+      .spending-edit-style i {
+        font-size: 15px;
+      }
+    }
+
+    .spending-item {
+      &-container {
+        display: flex;
+        justify-content: space-between;
+        line-height: 1.35rem;
+
+        .spending-item {
+          &-title {
+            display: block;
+            min-width: 120px;
+            font-size: 16px;
+            margin-left: 20px;
+          }
+        }
+      }
+
+      &-category,
+      &-location,
+      &-amount,
+      &-date,
+      &-event {
+        width: 100%;
+        text-align: left;
+        font-size: 16px;
+        margin-right: 4px;
+
+        .spending-item-value {
+          width: 90%;
+          text-align: left;
+          max-width: 90%;
+          font-size: 16px;
+          margin-right: 20px;
+        }
+      }
+    }
+
+    .spending-table-row {
+      .spending-item-editor {
+        .spending-item-title {
+          display: none;
+        }
+        .spending-item-value {
+          margin-top: 8px;
+          margin-left: 16px;
+
+          .spending-edit-style {
+            width: 32px;
+          }
+        }
+      }
+    }
+
+    .show-flex {
+      display: none !important;
+    }
+  }
+}
+
+@media screen and (max-width: 520px) {
+  .spending-list {
+    .spending-search-row {
+      .spending-multi-select {
+        width: 13.5rem;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 465px) {
+  .spending-list {
+    padding-left: 0;
+
+    .spending-title {
+      padding-left: 10px;
+      font-size: 28px;
+    }
+
+    .spending-table-header {
+      font-weight: 600;
+      font-size: 14px;
+    }
+
+    .spending-table-row {
+      font-size: 14px;
+      margin: 18px 0;
+
+      .spending-edit-style i {
+        font-size: 15px;
+      }
+    }
+
+    .spending-search-row {
+      display: block;
+      .DayPickerInput {
+        width: 100%;
+      }
+
+      .spending-multi-select {
+        width: 100%;
+        max-width: 16rem;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .spending-title {
+    font-size: 24px;
+  }
+
+  .spending-list {
+    .spending-table-header {
+      display: none;
+    }
+
+    .spending-table-row {
+      font-size: 16px;
+      margin: 18px 0;
+    }
+
+    .spending-item-container .spending-item-title {
+      margin-left: 10px;
+    }
+  }
+
+  .spending-search-row .btn {
+    margin-top: 4px;
+  }
+}
+
+@media print {
+  .spending-entry-form {
+    display: none;
+  }
+
+  .spending-edit-style {
+    display: none;
+  }
+}

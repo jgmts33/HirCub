@@ -1,0 +1,154 @@
+.menu-btn .navbar-toggles {
+  background-color: transparent;
+  background-image: none;
+  border: none;
+  border-radius: 4px;
+  transition: 0.5s;
+  -webkit-transition: 0.5s;
+  width: 35px;
+  height: 27px;
+  cursor: pointer;
+  outline: none;
+  z-index: 9;
+}
+
+.menu-btn .navbar-toggles .nav-icons {
+  position: relative;
+  top: 2px;
+  right: 0;
+  display: block;
+  height: 4px;
+  background-color: white;
+  border-radius: 2.5rem;
+  transition: all 0.3s;
+  border-radius: 2px;
+  z-index: 9;
+}
+
+.menu-btn .navbar-toggles .nav-icons::after,
+.menu-btn .navbar-toggles .nav-icons::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  display: block;
+  height: 4px;
+  width: 100%;
+  border-radius: 2.5rem;
+  background-color: white;
+  transition: all 0.3s;
+  right: 0;
+  border-radius: 2px;
+  cursor: pointer;
+}
+.menu-btn .navbar-toggles .nav-icons::after {
+  top: 9px;
+}
+
+.menu-btn .navbar-toggles .nav-icons::before {
+  top: -9px;
+}
+.navigation-is-visible .navbar-toggles {
+  position: fixed;
+  right: 15px;
+  top: 55px;
+  z-index: 9;
+}
+.navigation-is-visible .nav-icons {
+  background-color: transparent !important;
+}
+
+.navigation-is-visible .nav-icons {
+  background-color: transparent !important;
+}
+.navigation-is-visible .nav-icons:before {
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  top: 0 !important;
+  background-color: #ffffff !important;
+}
+
+.navigation-is-visible .nav-icons:after {
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+  top: 0 !important;
+  background-color: #ffffff !important;
+}
+
+.page-logo {
+  margin-left: 20%;
+  margin-top: 54px;
+}
+
+.page-welcome {
+  font-size: 3em;
+  color: #fff;
+}
+
+@media screen and (max-width: 2140px) {
+  .page-logo {
+    margin-left: 10%;
+    margin-top: 48px;
+  }
+}
+@media screen and (max-width: 1920px) {
+  .page-logo {
+    margin-left: 5%;
+    margin-top: 48px;
+  }
+}
+
+@media screen and (max-width: 1400px) {
+  .page-welcome {
+    font-size: 2em;
+    color: #fff;
+  }
+  .page-logo {
+    margin-left: 0%;
+    margin-top: 54px;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .page-welcome {
+    font-size: 2em;
+    color: #fff;
+  }
+}
+@media screen and (max-width: 992px) {
+  .page-welcome {
+    font-size: 1.75em;
+    color: #fff;
+    margin-left: 24px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .page-welcome {
+    font-size: 1.5em;
+    color: #fff;
+  }
+}
+@media screen and (max-width: 590px) {
+  .page-welcome {
+    font-size: 1.5em;
+    color: #fff;
+  }
+}
+@media screen and (max-width: 465px) {
+  .page-welcome {
+    font-size: 1em;
+    color: #fff;
+    margin-top: 16px;
+    margin-left: 16px;
+  }
+}
+@media screen and (max-width: 380px) {
+  .page-welcome {
+    font-size: 0.9em;
+    color: #fff;
+  }
+}
+@media screen and (max-width: 350px) {
+  .page-welcome {
+    font-size: 0.75em;
+    color: #fff;
+  }
+}

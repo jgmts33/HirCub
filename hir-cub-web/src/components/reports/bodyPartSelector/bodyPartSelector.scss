@@ -1,0 +1,6 @@
+.body-part-selector {
+  width: 250px;
+  @media (max-width: 767px) {
+    width: 100%;
+  }
+}

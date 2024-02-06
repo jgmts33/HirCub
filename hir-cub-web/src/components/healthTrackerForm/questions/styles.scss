@@ -1,0 +1,9 @@
+.question-group {
+  .accordion-group {
+    .accordion-body .form-group {
+      &:last-child {
+        margin-bottom: 1rem;
+      }
+    }
+  }
+}

@@ -1,0 +1,88 @@
+.report-heading-block {
+  display: flex;
+  flex-direction: column;
+
+  @media screen and (min-width: 992px) {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__left,
+  &__right {
+    display: flex;
+    align-items: center;
+    color: #000;
+  }
+
+  &__left {
+    width: 46%;
+    font-size: 1.5rem;
+
+    &-logo {
+      width: 2.5rem;
+    }
+
+    &-title {
+      display: flex;
+      flex-wrap: wrap;
+      margin-left: 1.2rem;
+    }
+
+    @media screen and (max-width: 649px) {
+      order: 1;
+      width: 100%;
+      margin-top: 0.5rem;
+
+      &-title {
+        margin: 0.5rem 0 0.5rem 0.5rem;
+      }
+    }
+  }
+
+  &__right {
+    &-label,
+    .input-datapicker-group {
+      margin-right: 0.5rem;
+    }
+
+    &-label {
+      font-weight: 700;
+    }
+
+    .input-datapicker-group {
+      input {
+        width: 10rem;
+        padding: 0 15px;
+        font-size: 14px;
+        border: 2px solid #00698c;
+      }
+    }
+
+    @media screen and (max-width: 649px) {
+      flex-direction: column;
+      align-items: flex-start;
+      border-bottom: 2px solid #08789c;
+
+      &-label {
+        margin-top: 0;
+        margin-bottom: 0.3rem;
+      }
+
+      .input-datapicker-group {
+        margin-bottom: 0.5rem;
+
+        &,
+        input {
+          width: 100%;
+        }
+      }
+
+      .btn {
+        align-self: flex-end;
+        margin-right: 0.5rem;
+        margin-bottom: 0.5rem;
+      }
+    }
+  }
+}

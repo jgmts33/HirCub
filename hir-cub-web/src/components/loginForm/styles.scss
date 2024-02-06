@@ -1,0 +1,36 @@
+.login-form {
+  .form-field-icon {
+    width: 28px;
+    font-size: 22px;
+    color: #5ab436;
+
+    &.email-blue-icon,
+    &.password-blue-icon {
+      color: #25739f;
+    }
+  }
+
+  .checkbox input[type='checkbox']:checked + span::before,
+  .checkbox input[type='checkbox'] + span::after {
+    border-radius: 50%;
+  }
+  .checkbox input[type='checkbox'] + span::after,
+  .checkbox input[type='checkbox']:checked + span::after {
+    border-color: #5ab436;
+  }
+
+  .impersonationButton {
+    color: #000;
+    cursor: pointer;
+    user-select: none;
+
+    &.active {
+      font-weight: 600;
+      text-decoration: underline;
+    }
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

@@ -1,0 +1,236 @@
+.help-page-style {
+  background-color: #fff;
+  overflow: hidden;
+  padding-bottom: 100px;
+
+  h2 {
+    color: #1e5b89;
+    font-size: 32px;
+    font-weight: 500;
+  }
+
+  .container {
+    h1 {
+      color: #1e5b89;
+      font-size: 60px;
+      font-weight: 500;
+    }
+
+    .help-text {
+      font-size: 18px;
+      color: #333;
+    }
+
+    .help-list {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 25px 0 65px;
+
+      .help-item {
+        width: 25%;
+        text-align: center;
+        position: relative;
+
+        &:hover {
+          .intro-box {
+            .icon {
+              background-color: #af3c83;
+            }
+            .title {
+              color: #8f2c83;
+            }
+          }
+        }
+      }
+
+      .nav-link {
+        text-decoration: none;
+
+        &:link {
+          text-decoration: none;
+        }
+      }
+
+      .intro-box {
+        display: flex;
+        align-items: center;
+        padding: 25px 0 35px;
+
+        .icon {
+          background-color: #8f2c83;
+          fill: #fff;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: 50%;
+          min-width: 70px;
+          width: 70px;
+          height: 70px;
+          padding: 0;
+          margin: 0;
+          margin-right: 10px;
+
+          svg {
+            width: 40px;
+            height: 40px;
+          }
+        }
+
+        .title {
+          font-size: 18px;
+          color: #00a1b9;
+          text-align: left;
+          -moz-user-select: none;
+          user-select: none;
+        }
+      }
+    }
+    
+    .help-intro {
+      color: #7d7d7d;
+      border-top: 1px solid #cccccc;
+      display: flex;
+      justify-content: space-between;
+      padding: 40px 0 70px;
+
+      &:last-child {
+        border-bottom: 1px solid #cccccc;
+      }
+      ul {
+        padding-left: 20px;
+
+        li {
+          margin-bottom: 10px;
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 1000px) {
+    .logo-login .logo {
+      width: 45%;
+
+      .short-tagline {
+        font-size: 25px;
+        margin-left: 10px;
+      }
+
+      .login-signup {
+        text-align: right;
+        width: 55%;
+        margin-bottom: 20px;
+      }
+    }
+
+    .container .help-list {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 60px 5% 120px;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .container .help-list {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 60px 0 120px;
+    }
+  }
+
+  @media screen and (max-width: 640px) {
+    .logo-login {
+      flex-wrap: wrap;
+
+      .logo {
+        width: 100%;
+        margin-bottom: 30px;
+      }
+
+      .login-signup-buttons {
+        margin-bottom: 10px;
+      }
+    }
+    .container .help-list .help-item {
+      width: 50%;
+
+      .intro-box {
+        padding: 0 0 15px;
+      }
+    }
+  }
+
+  @media screen and (max-width: 540px) {
+    .help-page-style {
+      h1 {
+        font-size: 40px;
+      }
+      .help-intro {
+        flex-wrap: wrap;
+        padding: 60px 0 10px;
+
+        .description {
+          width: 100%;
+          margin-bottom: 15px;
+        }
+        h2 {
+          font-size: 26px;
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 460px) {
+    .container .help-list {
+      padding: 25px 0 65px;
+
+      .help-box {
+        .icon {
+          min-width: 50px;
+          width: 50px;
+          height: 50px;
+          margin-right: 5px;
+
+          svg {
+            width: 32px;
+            height: 32px;
+          }
+        }
+
+        .title {
+          min-width: 140px;
+          text-align: left;
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 375px) {
+    .container .help-list .intro-box {
+      .title {
+        min-width: 90px;
+      }
+    }
+  }
+
+  @media screen and (max-width: 340px) {
+    .container .help-list {
+      .intro-box {
+        .icon {
+          min-width: 45px;
+          width: 45px;
+          height: 45px;
+
+          svg {
+            width: 30px;
+            height: 30px;
+          }
+        }
+
+        .title {
+          min-width: 80px;
+          font-size: 16px;
+        }
+      }
+    }
+  }
+}

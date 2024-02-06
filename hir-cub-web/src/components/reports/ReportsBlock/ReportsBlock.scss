@@ -1,0 +1,181 @@
+.reports-screen {
+  position: relative;
+  width: 100%;
+  min-height: 15rem;
+
+  @media screen and (min-width: 992px) {
+    flex: 1;
+    margin-left: 1rem;
+  }
+
+  .tabs-block {
+    &-list {
+      overflow: auto;
+
+      a {
+        padding: 1rem 1.2rem;
+      }
+    }
+
+    &-content {
+      padding: 1rem 1.2rem;
+    }
+  }
+}
+
+.noData {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  white-space: nowrap;
+}
+
+.reports-block {
+  min-height: 15rem;
+
+  &-graph {
+    margin: 2rem 0;
+
+    &__title {
+      font-size: 2rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+    }
+
+    &__description {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+  }
+
+  &-group-btn {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    .btn {
+      margin-right: 0.5rem;
+      margin-bottom: 1.5rem;
+      padding: 20px 15px;
+      font-size: 14px;
+      flex-grow: 1;
+      flex-basis: 170px;
+      max-width: 210px;
+      margin: 10px;
+      line-height: 1;
+
+      &.-purpose-btn {
+        background-color: #00698c;
+        transition: 0.3s all;
+        border: 1px solid #00698c;
+        box-sizing: border-box;
+        &:hover {
+          background-color: #c5e5e8;
+          color: #00698c;
+          border: 1px solid #00698c;
+        }
+      }
+    }
+
+    &.\--custom {
+      .btn {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &-table {
+    $widthCommon: 20%;
+    $widthDate: 10%;
+    $widthDetails: 50%;
+    $widthPainType: 25%;
+    $widthMobile: 35%;
+    $widthDateMb: 18%;
+
+    &__heading,
+    &__body-row {
+      display: flex;
+      margin-bottom: 0.4rem;
+    }
+
+    &__heading {
+      border-bottom: 3px solid #000;
+      padding-bottom: 0.2rem;
+
+      &-item {
+        width: $widthCommon;
+
+        @media (max-width: 480px) {
+          font-size: 14px;
+          width: $widthMobile;
+        }
+
+        &.\--date {
+          width: $widthDate;
+
+          @media (max-width: 480px) {
+            width: $widthDateMb;
+          }
+        }
+
+        &.\--painType {
+          width: $widthPainType;
+
+          @media (max-width: 480px) {
+            width: $widthMobile;
+          }
+        }
+
+        &.\--details {
+          width: $widthDetails;
+
+          @media (max-width: 480px) {
+            width: $widthMobile;
+          }
+        }
+      }
+    }
+
+    &__body-row {
+      &__item {
+        width: $widthCommon;
+
+        @media (max-width: 480px) {
+          font-size: 14px;
+          width: $widthMobile;
+        }
+
+        &.\--date {
+          width: $widthDate;
+
+          @media (max-width: 480px) {
+            width: $widthDateMb;
+          }
+        }
+
+        &.\--painType {
+          width: $widthPainType;
+
+          @media (max-width: 480px) {
+            width: $widthMobile;
+          }
+        }
+
+        &.\--details {
+          width: $widthDetails;
+
+          @media (max-width: 480px) {
+            width: $widthMobile;
+          }
+        }
+      }
+    }
+  }
+}
+
+.reports-block-graph__chart {
+  &.\--custom {
+    margin-left: 1.5rem;
+  }
+}

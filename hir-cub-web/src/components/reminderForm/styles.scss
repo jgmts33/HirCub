@@ -1,0 +1,293 @@
+.reminder-style {
+  min-height: 500px;
+
+  .form-title {
+    margin-left: 40px;
+
+    font-size: 30px;
+    font-weight: 600;
+    color: #222;
+    margin-bottom: 20px;
+  }
+
+  .form-description {
+    margin-left: 40px;
+    margin-right: 40px;
+
+    color: #222;
+    margin-bottom: 10px;
+  }
+
+  > hr {
+    margin-left: 40px;
+    margin-right: 40px;
+    background-color: #4fb8c9;
+    color: #7dd4dc;
+    border: 0px;
+    height: 2px;
+    margin-bottom: 10px;
+  }
+
+  .form-reminder-setting {
+    margin-left: 40px;
+    margin-right: 40px;
+
+    .sub-title {
+      font-size: 17px;
+      color: #222;
+      margin-left: 40px;
+    }
+
+    .reminder-label {
+      width: calc(100% - 20px);
+      text-align: right;
+      line-height: 52px;
+      margin-right: 12px;
+    }
+
+    .reminder-alert {
+      background: none;
+
+      margin-left: 4px;
+      margin-right: 4px;
+      display: inline-flex;
+
+      margin-bottom: 0;
+      border-radius: 0;
+
+      width: calc(100% - 8px);
+    }
+
+    .input-datapicker-group input {
+      padding: 0 12px;
+      width: 120px;
+      border: 2px solid #00698c;
+    }
+
+    .page-panel-group-container {
+      max-width: none;
+      border-radius: 4px;
+      background-color: #fff;
+    }
+
+    .page-panel-group {
+      margin-left: 4px;
+      margin-right: 4px;
+      display: inline-flex;
+
+      margin-bottom: 0;
+      border-radius: 0;
+      width: calc(100% - 8px);
+      border-bottom: 1px solid #d3d3d3;
+
+      .page-panel-group-title {
+        width: 50%;
+        font-size: 16px;
+
+        border-radius: 0;
+        background: #fff;
+        color: #333;
+        padding: 0.75rem 0.75rem;
+        margin-left: 0.25rem;
+        margin-bottom: 0;
+      }
+
+      .page-panel-group-body {
+        display: inline-flex;
+        padding: 0.5rem;
+        margin-top: 0.2rem;
+
+        .form-group {
+          margin-bottom: 0rem;
+          color: #333;
+          margin-right: 10px;
+          min-width: 90px;
+
+          .radio input[type='radio'] + span {
+            color: #333;
+
+            &:after {
+              width: 20px;
+              height: 20px;
+              margin-top: 0px;
+              margin-left: 2px;
+              margin-right: 0px;
+              border: 2px solid #51bccb;
+            }
+
+            &:before {
+              margin-left: 6px;
+              width: 12px;
+              height: 12px;
+              margin-top: 4px;
+            }
+          }
+          .radio .label-txt {
+            font-size: 1rem;
+            user-select: none;
+          }
+
+          .checkbox input[type='checkbox'] + span {
+            color: #333;
+
+            &:after {
+              width: 20px;
+              height: 20px;
+              margin-top: 0px;
+              margin-left: 2px;
+              margin-right: 0px;
+              border: 2px solid #51bccb;
+            }
+
+            &:before {
+              margin-left: 6px;
+              width: 12px;
+              height: 12px;
+              margin-top: 4px;
+            }
+          }
+          .checkbox .label-txt {
+            font-size: 1rem;
+            user-select: none;
+          }
+        }
+      }
+    }
+  }
+
+  .btn-reminder {
+    text-align: right;
+    padding-top: 20px;
+    margin-right: 40px;
+    padding-bottom: 28px;
+
+    > button {
+      border-width: 0;
+      height: 32px;
+      text-transform: uppercase;
+      margin-left: 10px;
+      font-size: 13px;
+    }
+    i {
+      margin-right: 10px;
+    }
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .reminder-style {
+    .form-reminder-setting {
+      .page-panel-group-container {
+        .page-panel-group {
+          display: block;
+
+          .page-panel-group-title {
+            width: 95%;
+          }
+          .page-panel-group-body {
+            margin-left: 8px;
+            margin-top: -8px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 830px) {
+  .reminder-style {
+    .form-reminder-setting {
+      .page-panel-group-container {
+        .page-panel-group {
+          .page-panel-group-body {
+            display: block;
+
+            .form-group {
+              margin-right: 0;
+              margin-bottom: 8px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .reminder-style {
+    .form-reminder-setting {
+      .page-panel-group-container {
+        .page-panel-group {
+          display: block;
+
+          .page-panel-group-title {
+            width: 95%;
+          }
+          .page-panel-group-body {
+            display: inline-flex;
+            margin-left: 8px;
+            margin-top: -8px;
+
+            .form-group {
+              min-width: 100px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 710px) {
+  .reminder-style {
+    .form-reminder-setting {
+      .page-panel-group-container {
+        .page-panel-group {
+          display: block;
+
+          .page-panel-group-title {
+            width: 95%;
+          }
+          .page-panel-group-body {
+            margin-left: 8px;
+            margin-top: -8px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 560px) {
+  .reminder-style {
+    .form-title {
+      margin-left: 20px;
+      font-size: 24px;
+    }
+    .form-description,
+    > hr,
+    .form-reminder-setting {
+      margin-left: 20px;
+      margin-right: 20px;
+    }
+  }
+}
+
+@media screen and (max-width: 560px) {
+  .reminder-style {
+    .form-reminder-setting {
+      .page-panel-group-container {
+        .page-panel-group {
+          .page-panel-group-body {
+            display: block;
+
+            .form-group {
+              margin-right: 0;
+              margin-bottom: 8px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

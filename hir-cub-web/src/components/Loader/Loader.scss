@@ -1,0 +1,27 @@
+.loader-container {
+  position: absolute;
+  top: calc(50% - 5rem);
+  left: calc(50% - 5rem);    
+  width: 10rem;
+  height: 10rem;
+  border-radius: 4px;
+  background: rgba(#202020, 0.3);
+  text-align: center;
+}
+
+.loader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border: 8px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 8px solid #3498db;
+  width: 3.5rem;
+  height: 3.5rem;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
+}

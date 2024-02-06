@@ -1,0 +1,63 @@
+.profile-share {
+  &_group {
+    margin-top: 10px;
+  }
+
+  &_form {
+    padding-top: 6px;
+  }
+
+  &_col {
+    display: inline-block;
+    min-width: 100px;
+
+    @media screen and (max-width: 800px) {
+      width: 100%;
+      min-width: initial;
+    }
+
+    padding-bottom: 12px;
+
+    border-bottom: solid 1px #888;
+  }
+
+  &_name {
+    width: 15%;
+  }
+  &_element {
+    float: left;
+    margin-left: 10px;
+    margin-bottom: 7px;
+  }
+
+  &_value {
+    color: #333;
+    user-select: none;
+    -moz-user-select: none;
+    font-size: 0.9rem;
+    margin-left: 4px;
+
+    .profile-select {
+      font-size: 0.9rem;
+      width: 8.2rem;
+      margin-top: 4px;
+      margin-left: -4px;
+
+      .select__control {
+        //border-radius: 20px;
+        font-size: 14px;
+        border: 2px solid #00698c;
+
+        svg {
+          fill: #000;
+        }
+      }
+
+      .select__value-container {
+        padding-top: 0;
+        padding-bottom: 0;
+        font-size: 14px;
+      }
+    }
+  }
+}

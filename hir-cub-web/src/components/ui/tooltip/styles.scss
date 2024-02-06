@@ -1,0 +1,142 @@
+@import '../var.scss';
+
+.tooltip {
+  position: relative;
+  cursor: pointer;
+}
+.tooltip i {
+  font-size: 24px;
+  color: #2573a8;
+}
+.tooltip .information-tooltip-content,
+.tooltip::after {
+  text-transform: none;
+  font-size: 0.9em;
+  line-height: 1;
+  user-select: none;
+  pointer-events: none;
+  position: absolute;
+  display: none;
+  opacity: 0;
+  color: black;
+}
+.tooltip::after {
+  content: '';
+  border: 5px solid transparent;
+  z-index: 1001;
+}
+.tooltip .information-tooltip-content {
+  min-width: 3em;
+  max-width: 21em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: black;
+  border: 1px solid $text-dark-blue;
+  border-radius: 4px;
+  background: #fff;
+  padding: 15px;
+  font-size: 0.9rem;
+  line-height: 22px;
+  box-shadow: 0 1em 2em -0.5em rgba(0, 0, 0, 0.35);
+  z-index: 10;
+}
+.tooltip:hover i {
+  color: #d35620;
+}
+.tooltip:hover .information-tooltip-content,
+.tooltip:hover::after {
+  display: block;
+}
+
+/* FLOW: UP */
+.tooltip:not([flow]) .information-tooltip-content::after,
+.tooltip[flow^='up']::before {
+  bottom: 100%;
+  border-bottom-width: 0;
+  border-top-color: #333;
+}
+.tooltip:not([flow]) .information-tooltip-content,
+.tooltip[flow^='up'] .information-tooltip-content {
+  bottom: calc(100% + 5px);
+}
+.tooltip:not([flow])::before,
+.tooltip:not([flow]) .information-tooltip-content,
+.tooltip[flow^='up']::before,
+.tooltip[flow^='up'] .information-tooltip-content {
+  left: 50%;
+  transform: translate(-50%, -0.5em);
+}
+
+/* FLOW: DOWN */
+.tooltip[flow^='down']::before {
+  top: 100%;
+  border-top-width: 0;
+  border-bottom-color: #333;
+}
+.tooltip[flow^='down'] .information-tooltip-content {
+  top: calc(100% + 5px);
+}
+.tooltip[flow^='down']::before,
+.tooltip[flow^='down'] .information-tooltip-content {
+  left: 50%;
+  transform: translate(-50%, 0.5em);
+}
+
+/* FLOW: LEFT */
+.tooltip[flow^='left']::before {
+  top: 50%;
+  border-right-width: 0;
+  border-left-color: #333;
+  left: calc(0em - 5px);
+  transform: translate(-0.5em, -50%);
+}
+.tooltip[flow^='left'] .information-tooltip-content {
+  top: 50%;
+  right: calc(100% + 5px);
+  transform: translate(-0.5em, -50%);
+}
+
+/* FLOW: RIGHT */
+.tooltip[flow^='right']::before {
+  top: 50%;
+  border-left-width: 0;
+  border-right-color: #333;
+  right: calc(0em - 5px);
+  transform: translate(0.5em, -50%);
+}
+.tooltip[flow^='right'] .information-tooltip-content {
+  top: 50%;
+  left: calc(100% + 5px);
+  transform: translate(0.5em, -50%);
+}
+
+@keyframes tooltips-vert {
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+@keyframes tooltips-horz {
+  to {
+    opacity: 1;
+    transform: translate(0, -50%);
+  }
+}
+
+.tooltip:not([flow]):hover::before,
+.tooltip:not([flow]):hover .information-tooltip-content,
+.tooltip[flow^='up']:hover::before,
+.tooltip[flow^='up']:hover .information-tooltip-content,
+.tooltip[flow^='down']:hover::before,
+.tooltip[flow^='down']:hover .information-tooltip-content {
+  animation: tooltips-vert 300ms ease-out forwards;
+}
+
+.tooltip[flow^='left']:hover::before,
+.tooltip[flow^='left']:hover .information-tooltip-content,
+.tooltip[flow^='right']:hover::before,
+.tooltip[flow^='right']:hover .information-tooltip-content {
+  animation: tooltips-horz 300ms ease-out forwards;
+}

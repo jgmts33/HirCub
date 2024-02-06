@@ -1,0 +1,59 @@
+.calendar-container {
+  display: flex;
+  flex-wrap: wrap;
+  box-sizing: initial;
+}
+.calendar-wrapper {
+  width: 60%;
+}
+.events-wrapper {
+  padding: 0 10px;
+  width: 40%;
+}
+.calendar-wrapper .mbsc-ios.mbsc-ev-cal .mbsc-fr-w {
+  background: #e6e6e6;
+  border-radius: 6px;
+  border: 1px solid #e6e6e6;
+}
+.calendar-wrapper .mbsc-ios.mbsc-fr-inline .mbsc-fr-c {
+  border-bottom: none;
+}
+.calendar-wrapper .mbsc-ios .mbsc-fr-btn {
+  color: #202020;
+}
+.calendar-wrapper .mbsc-cal-month, .mbsc-cal-year {
+  color: #25739f;
+  font-weight: 600;
+}
+.calendar-wrapper .mbsc-ios .mbsc-cal-days>div {
+  color: #605f5f;
+  padding: 0 5px;
+}
+.calendar-wrapper .mbsc-ios .mbsc-cal-days>div,
+.calendar-wrapper .mbsc-ios .mbsc-cal-cell {
+  text-align: left;
+}
+.calendar-wrapper .mbsc-ios .mbsc-cal-cell {
+  border-top: 1px solid #ccc;
+  border-left: 1px solid #c1c1c1;
+}
+.calendar-wrapper .mbsc-cal-row .mbsc-cal-cell:first-child{
+  border-left: none;
+}
+.calendar-wrapper .mbsc-ios .mbsc-cal-day-date {
+  margin: .3125em;
+}
+.calendar-wrapper .mbsc-cal-day-diff{
+  background: #e6e6e6;
+}
+.mbsc-ios .mbsc-cal-day-scroll-c .mbsc-cal-slide {
+  padding-bottom: 0;
+}
+@media screen and (max-width: 768px) {
+  .calendar-wrapper,
+  .events-wrapper {
+    width: 110%;
+    padding: 0px;
+    margin-bottom: 20px;
+  }
+}

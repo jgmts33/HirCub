@@ -1,0 +1,18 @@
+<svg version="1.2" baseProfile="tiny-ps" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+	<title>TABS</title>
+	<defs>
+		<image  width="24" height="24" id="img1" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAMAAADXqc3KAAAAAXNSR0IB2cksfwAAAHVQTFRF////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////qjnRfAAAACd0Uk5TABjg4x5Q/11gAxwdsqEBlbffpZfhQfZTYULccZkIdf5J9RMUh8LBdgMFMQAAAIlJREFUeJzV0NsSgjAMBNB46WrlogiiCAgI+v+faIGJjVqGZ3fytKeZzJToncVytSZXFLCZgu1/gN5Z8LQAH4EeIdzjICACjrqHMAYSAafUyBm4mD7N5JHMyHWYz36UPt89i+jzorTCfVncqELNO03D72tUBChevrfiEyTYzECnftIN4A493P3zBbshCW9cKHrzAAAAAElFTkSuQmCC"/>
+	</defs>
+	<style>
+		tspan { white-space:pre }
+	</style>
+	<g id="TABS">
+		<g id="NOTES CONTENT">
+			<g id="2 NEW NOTE">
+				<g id="Save button">
+					<use id="Vector Smart Object" href="#img1" x="0" y="0" />
+				</g>
+			</g>
+		</g>
+	</g>
+</svg>

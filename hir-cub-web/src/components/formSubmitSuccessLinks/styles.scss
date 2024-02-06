@@ -1,0 +1,70 @@
+.modal-submit-links {
+  .page-panel-group-container {
+    padding: 0;
+  }
+  .page-panel-group {
+    background: transparent;
+    padding: 0;
+    margin: 0;
+    border: none;
+  
+    > ul {
+      display: flex;
+      flex-wrap: wrap;
+      list-style: none;
+      padding: 0;
+      
+      > li {
+        display: block;
+        width: 50%;
+        padding-left: 10px;
+        padding-right: 10px;
+
+        &:nth-child(1) > a::before,
+        &:nth-child(2) > a::before {
+          background: url('/img/assets/modal-library-icon.png');
+        }
+        &:nth-child(3) > a::before {
+          background: url('/img/assets/modal-my-caregiving-icon.png');
+        }
+        &:nth-child(4) > a::before {
+          background: url('/img/assets/modal-health-tracker-icon.png');
+        }
+
+        > a {
+          display: block;
+          font-size: 1rem;
+        
+          &::before {
+            content: '';
+            display: block;
+            width: 47px;
+            height: 47px;
+            margin: 5px auto;
+          }
+        }
+      }      
+    }
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .modal-submit-links {
+    .page-panel-group {
+      > ul > li > a {
+        font-size: 0.85rem;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .modal-submit-links {
+    .page-panel-group {
+      > ul > li {
+        padding-left: 4px;
+        padding-right: 4px;
+      }
+    }
+  }
+}
